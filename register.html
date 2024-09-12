@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="Static/style.css">
+        <meta name="author" content="Elie Ducrey">
+        <title>Formulaire d'inscription</title>
+    </head>
+    <body>
+        <a href="index.html"> Retour à la page d'accueil </a>
+        <form>
+            <div class="form-example">
+                <label for="name">Pseudo : </label>
+                <input type="text" name="name" id="name" required />
+            </div>
+            <div class="form-example">
+                <label for="email">Email : </label>
+                <input type="email" name="email" id="email" required />
+            </div>
+            <div>
+                <label for="pass">Mot de passe (8 caractère minimum):</label>
+                <input type="password" id="pass" name="password" minlength="8" +required />
+              </div>
+            <div class="form-example">
+                <input type="submit" value="S'inscrire" />
+            </div>
+            
+        </form>
+    </body>
+</html>

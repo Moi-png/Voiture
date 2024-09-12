@@ -1,0 +1,15 @@
+h1 {
+    color: rgb(9, 255, 0);
+}
+a {
+    padding: 5px 16px;
+    text-align: center;
+   text-decoration: wavy;
+   border-style: groove; 
+   border-width: 2px;
+   color: rgb(0, 255, 0);
+   border-color: blueviolet;
+}
+a:hover{background-color: cyan;}
+a:active{background-color: hotpink;}
+a:visited{color: magenta;}
