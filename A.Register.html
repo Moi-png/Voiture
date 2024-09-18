@@ -3,13 +3,20 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <meta name="author" content="Elie Ducrey">
+        <meta name="author" content="Moi-png, ELPHILA">
         <title>Formulaire d'inscription</title>
     </head>
+    <script>
+        function redirectAfterSubmit(event) {
+            event.preventDefault();
+            alert("Vous êtes connecté !");
+            window.location.href = "2.Début site.html";
+        }
+    </script>
     <body>
         <a href="1.Index.html"> Retour à la page d'accueil </a>
         <p></p>
-        <form>
+        <form onsubmit="redirectAfterSubmit(event)">
             <div class="form-example">
                 <label for="name">Pseudo : </label>
                 <input type="text" name="name" id="name" required />

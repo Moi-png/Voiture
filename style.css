@@ -6,15 +6,18 @@ h1 {
     height:100vh;
     margin:0;
     texte-align:center; 
+    font-family:'Franklin Gothic Medium';
 }
 p{
     color: rgb(0, 0, 0);
+    font-family:'Franklin Gothic Medium';
 }
 body{
     background-image: url('background.png');
     background-size: cover;
     background-repeat: all;
     background-position: center;
+    font-family:'Franklin Gothic Medium';
 }
 a {
     padding: 5px 16px;
@@ -24,6 +27,7 @@ a {
     border-width: 2px;
     color: rgb(0, 0, 0);
     border-color: rgb(0, 0, 0);
+    font-family:'Franklin Gothic Medium';
 }
 a:hover{background-color: rgb(0, 0, 0);}
 a:active{background-color: rgb(0, 0, 0);}
