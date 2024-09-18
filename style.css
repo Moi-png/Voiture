@@ -1,5 +1,5 @@
 h1 {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 a {
     padding: 5px 16px;
@@ -7,7 +7,7 @@ a {
    text-decoration: wavy;
    border-style: groove; 
    border-width: 2px;
-   color: rgb(0, 255, 0);
+   color: rgb(255, 255, 255);
    border-color: blueviolet;
 }
 a:hover{background-color: cyan;}
