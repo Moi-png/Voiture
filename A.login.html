@@ -7,8 +7,9 @@
         <title>Formulaire de connection</title>
     </head>
     <script>
-        function redirectAfterSubmit() {
-            alert("Vous êtes connecté !")
+        function redirectAfterSubmit(event) {
+            event.preventDefault();
+            alert("Vous êtes connecté !");
             window.location.href = "2.Début site.html";
         }
     </script>
