@@ -13,9 +13,9 @@ p{
     font-family:'Franklin Gothic Medium';
 }
 body{
-    background-image: url('dbackground.png');
+    background-image: url('dbackground.jpg');
     background-size: cover;
-    background-repeat: all;
+    background-repeat: 100000;
     background-position: center;
     font-family:'Franklin Gothic Medium';
 }
