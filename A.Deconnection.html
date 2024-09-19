@@ -6,11 +6,28 @@
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Formulaire de deconnection</title>
     </head>
+    <script>
+    function redirectAfterSubmit(event) {
+        event.preventDefault();
+        alert("Vous êtes connecté !");
+        window.location.href = "2.Début site.html";
+    }
+    </script>
     <body>
-        <a href="2.Début site.html"> Retour à la page des marques de voiture </a>
-
-
-        
-    <p></p>
+        <a href="2.Début site.html"> Retour à la page des marques de voiture </a> 
+        <p></p>
+        <form onsubmit="redirectAfterSubmit(event)">
+            <div class="form-example">
+                <label for="name">Pseudo : </label>
+                <input type="text" name="name" id="name" required />
+            </div>
+            <div>
+                <label for="pass">Mot de passe :</label>
+                <input type="password" id="pass" name="password" minlength="8" +required />
+              </div>
+            <div class="form-example">
+                <input type="submit" value="Se déconnecter"/>
+            </div>
+        </form>    
     </body>
 </html>
