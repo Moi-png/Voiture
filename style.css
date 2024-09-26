@@ -32,3 +32,6 @@ p{
     font-family:'Franklin Gothic Medium';
     text-align:center;
 }
+input{
+    background-color: rgb(251, 85, 0);
+}
