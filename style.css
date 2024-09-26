@@ -1,34 +1,29 @@
-h1 {
-    color: rgb(0, 0, 0);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
-    texte-align:center; 
+
+a{
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
+    text-align:center;
 }
-p{
-    color: rgb(0, 0, 0);
+h2{
+    color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium';
+    text-align:center;
 }
 body{
     background-image: url('dbackground.jpg');
     background-size: cover;
     background-repeat: 100000;
-    background-position: center;
+    color:  rgb(251, 85, 0)
     font-family:'Franklin Gothic Medium';
+    text-align:center;
 }
-a {
-    padding: 5px 16px;
-    text-align: center;
-    text-decoration: wavy;
-    border-style: groove; 
-    border-width: 2px;
-    color: rgb(0, 0, 0);
-    border-color: rgb(0, 0, 0);
+form{
+    color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium';
+    text-align:center;
 }
-a:hover{background-color: rgb(0, 0, 0);}
-a:active{background-color: rgb(0, 0, 0);}
-a:visited{color: rgb(0, 0, 0);}
+p{
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+}
