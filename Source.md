@@ -2,4 +2,8 @@ DefaultPhoto : (https://r.search.yahoo.com/_ylt=AwrFSXF3VvVmM_suWwBGWwx.;_ylu=c2
 
 garage = (https://www.quayfacilitiesrollershutters.co.uk/roller-shutters/garage-roller-shutters)
 
-VS = https://www.archisoup.com/procreate-vs-photoshop
+vs = https://www.freepnglogos.com/pics/vs
+
+phone = https://www.freepnglogos.com/pics/vs
+
+mail = https://www.freepnglogos.com/pics/vs
