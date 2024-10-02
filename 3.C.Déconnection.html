@@ -13,27 +13,29 @@
             window.location.href = "1.Index.html";
         }
     </script>
-    <body class="Formulaire">
+    <body >
         <div class="top-text">
         <a href="3.A.Page d'acceuil.html"> Retour à la page d'acceuil </a> 
         <br>
         </div>
-        <form onsubmit="redirectAfterSubmit(event)">
-            <div class="form-example">
-                <label for="name">Pseudo : </label>
-                <input type="text" name="name" id="name" required />
-            </div>
-            <br>
-            <div>
-                <label for="pass">Mot de passe :</label>
-                <input type="password" id="pass" name="password" minlength="8" +required />
-              </div>
-              <br>
-            <div class="form-example">
-                <input type="submit" value="Se déconnecter"/>
-            </div>
-            <br>
+        <div class="Formulaire">
+            <form onsubmit="redirectAfterSubmit(event)">
+                <div>
+                    <label for="name">Pseudo : </label>
+                    <input type="text" name="name" id="name" required />
+                </div>
+                <br>
+                <div>
+                    <label for="pass">Mot de passe :</label>
+                    <input type="password" id="pass" name="password" minlength="8" +required />
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Se déconnecter"/>
+                </div>
+                <br>
         </form>  
+    </div>
         <!-- <a href="3.A.Page d'acceuil.html"> Revenir à la page d'acceuil </a>  -->
     </body>
 </html>

@@ -14,7 +14,7 @@ h2{
     font-family:'Franklin Gothic Medium'; 
     text-align: right;
 }*/
-h4{
+.Gauche{
     color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium'; 
     text-align: left;
@@ -51,12 +51,12 @@ input{
     font-family:'Franklin Gothic Medium';
 }
 .Formulaire {
-    position: absolute;
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .top-text {
     position: absolute;
@@ -65,3 +65,4 @@ input{
     width: 100%;
     text-align: center;
 }
+div
