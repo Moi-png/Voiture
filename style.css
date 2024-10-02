@@ -22,10 +22,9 @@ h4{
 }
 .Droite{
     position: absolute;
-    top: 0;
     right: 0;
-    width: 100%;
     text-align: right;
+    display: flex;
 }
 body{
     background-image: url('dbackground.jpg');
@@ -52,6 +51,7 @@ input{
     font-family:'Franklin Gothic Medium';
 }
 .Formulaire {
+    position: absolute;
     margin: 0;
     height: 100vh;
     display: flex;
