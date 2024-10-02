@@ -9,15 +9,23 @@ h2{
     font-family:'Franklin Gothic Medium';
     text-align:center;
 }
-h3{
+/*h3{
     color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium'; 
     text-align: right;
-}
+}*/
 h4{
     color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium'; 
     text-align: left;
+    display: flex;
+}
+.Droite{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    text-align: right;
 }
 body{
     background-image: url('dbackground.jpg');
