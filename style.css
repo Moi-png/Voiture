@@ -19,6 +19,7 @@ h2{
     font-family:'Franklin Gothic Medium'; 
     text-align: left;
     display: flex;
+    position: absolute;
 }
 .Droite{
     position: absolute;
@@ -50,7 +51,7 @@ input{
     color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
 }
-.Formulaire {
+.center {
     margin: 0;
     height: 100vh;
     display: flex;
