@@ -65,4 +65,8 @@ input{
     width: 100%;
     text-align: center;
 }
-div
+ul {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+}
