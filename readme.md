@@ -7,10 +7,6 @@ page d'acceuil :
 
 page de contact :
     Centrer le texte, couleur
-
-Déconnection :
-    Voir si on met que 1 bouton ou si on garde la page
-
 Compte + like :
     Faire, enlever liste, voir si on garde la page des likes ou si on mets sur la page compte
 
