@@ -64,6 +64,14 @@ input{
     align-items: center;
     text-align: center;
 }
+.center-voiture {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    text-align: center;
+}
 .top-text {
     position: absolute;
     top: 0;
