@@ -5,6 +5,11 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
 page d'acceuil :
     Style pour mettre les images bien placé sur la page (image au fond)
 
+<<<<<<< HEAD
+=======
+page de contact :
+    Centrer le texte, couleur
+>>>>>>> bf833ae2d40a4383d496739884d6ef19b44a888a
 Compte + like :
     Faire, enlever liste, voir si on garde la page des likes ou si on mets sur la page compte
 
