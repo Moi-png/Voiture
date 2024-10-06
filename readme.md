@@ -10,7 +10,6 @@ Compte + like :
 
 
 Catalogue :
-
     ajouter tous les liens pour la suite, style
 
 Comparatif :
@@ -22,10 +21,6 @@ plan du site :
     ajouter tous les liens pour la suite, la faire
     Renvoie directement à la page "regarder une voiture"
     Bouton voiture précédente, voiture suivante
-
-
-COmparatif :
-    faire en se basant sur regarder
 
 Enlever les br
 
