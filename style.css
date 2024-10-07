@@ -84,3 +84,15 @@ ul {
     font-family:'Franklin Gothic Medium';
     text-align:center;
 }
+.downL {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:relative;
+    text-align:right;
+}
+.downR {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:relative;
+    text-align:left;
+}
