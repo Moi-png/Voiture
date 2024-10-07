@@ -7,9 +7,6 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
 Compte + like :
     Faire, enlever liste, voir si on garde la page des likes ou si on mets sur la page compte
 
-Catalogue :
-    ajouter tous les liens pour la suite, style
-
 Comparatif :
     faire en se basant sur regarder
 
