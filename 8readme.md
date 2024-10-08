@@ -19,4 +19,8 @@ contrôler toutes les images
 
 rendre code beau et juste
 
+Regarder une voiture 1/2
+    mettre texte stat à gauche et voiture à droite, espace entre texte
+    source like et ajout voiture image et changé de voiture cheker ça bug
+
 
