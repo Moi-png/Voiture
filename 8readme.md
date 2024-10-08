@@ -13,8 +13,10 @@ Compte :
 plan du site :
     le refaire avec changement
 
-contrôler tous les liens
+contrôler tout les liens html
 
 contrôler toutes les images
+
+rendre code beau et juste
 
 
