@@ -10,8 +10,8 @@ Comparatif :
 Compte :
     lien vers voitures
 
-plan du site :
-    le refaire avec changement
+document word :
+    refaire le plan
 
 contrôler tout les liens html
 
