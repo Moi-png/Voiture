@@ -87,12 +87,30 @@ ul {
 .downL {
     color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium';
-    position:relative;
-    text-align:right;
+    position:fixed;
+    left:0;
+    bottom:0;
+
+}
+.CL {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    left:0;
+}
+.CR {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    right:0;
 }
 .downR {
     color: rgb(251, 85, 0); 
     font-family:'Franklin Gothic Medium';
-    position:relative;
-    text-align:left;
+    position:fixed;
+    right:0;
+    bottom:0;
+}
+ul {
+    list-style-type:none;
 }
