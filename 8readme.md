@@ -50,6 +50,8 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
 document word :
     refaire le plan
 
+organiser dossier site + refaire plan dans dossier    document et remettre le bon document fini dans le dossier document, remettre toutes les images, que les utiles enlevé les inutiles
+
 contrôler tout les liens html
 
 contrôler toutes les images
