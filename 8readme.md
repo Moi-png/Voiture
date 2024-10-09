@@ -69,11 +69,7 @@ contrôler tout les liens html
 
 contrôler toutes les images
 
-rendre code beau et juste
-
 copier image dans le dossier document
-
-Regarder 4 fonctionnalités choisi
 
 Cheker si image fonctionne dans autre dossier
 
