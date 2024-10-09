@@ -1,0 +1,143 @@
+body{
+    background-image: url('7dbackground.jpg');
+    background-size: cover;
+    background-repeat: 100000;
+    color:  rgb(251, 85, 0)
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+    background-color: black;
+}
+a{
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+}
+form{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+}
+p{
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+}
+input{
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(251, 85, 0);
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+}
+ul {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+    list-style-type:none;
+}
+h1{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    text-align:center;   
+}
+h2{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    text-align:center;
+}
+.Gauche{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium'; 
+    text-align: left;
+    display: flex;
+    position: fixed;
+}
+.Droite{
+    position: fixed;
+    right: 0;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+}
+.Centre{
+    position: fixed;
+    right: 50%;
+    left:50%;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+}
+.center {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.center-voiture {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.top-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.downL {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    left:0;
+    bottom:0;
+
+}
+.CL {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    left:0;
+}
+.CR {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    right:0;
+}
+.downR {
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    right:0;
+    bottom:0;
+}
+.downC{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    bottom:0;
+    position: fixed;
+    right: 50%;
+    left:50%;
+    text-align: right;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    margin:10px;
+}
+.mid{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    justify-content: center;
+}
+.ID{
+    position: fixed;
+    right:0;
+    top:20%;
+
+}
