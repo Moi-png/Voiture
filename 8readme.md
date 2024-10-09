@@ -10,65 +10,12 @@ Mais si la voiture de vos rêves n’est pas présente. Vous pouvez la rajouter 
 
 Mais aussi, si vous tomber dans le catalogue sur une voiture qui vous intéresse, vous pouvez la liker
 
-1.PageTitre.html
-    Texte fixé à l'image si on dezoom
-
-2.Login.html
-    Texte fixé à l'image si on dezoom
-
-2.Register.html
-    Texte fixé à l'image si on dezoom
-
-3.Déconnection.html
-    Texte fixé à l'image si on dezoom
-    comment y avoir accès?
-
-3.WelcomeNewUser.html
-    Texte fixé à l'image si on dezoom
-
-4.Page d'acceuil.html
-    Texte fixé à l'image si on dezoom
-
-5.Comparatif.html
-    Texte fixé à l'image si on dezoom
-
-5.Compte.html
-    Texte fixé à l'image si on dezoom
-
-5.Contact.html
-    Texte fixé à l'image si on dezoom
-
-5.RegarderUneVoiture.html
-    Image au bon endroit
-    Texte bien aligné
-    espace entre texte
-    revenir à la page d'acceuil au bon endroit
-    organisation code
-    image like qui change quand on clique dessus
-
-6.AjoutDeVoiture.html
-    Texte fixé à l'image si on dezoom
-
-6.RegarderUneVoiture.html
-    Image au bon endroit
-    Texte bien aligné
-    espace entre texte
-    revenir à la page d'acceuil au bon endroit
-    organisation code
-    image like qui change quand on clique dessus
-
-style.css
-    trier style inutile
 
 document word :
     refaire le plan
     changer le texte en enlevant la partie des filtres
 
 organiser dossier site + refaire plan dans dossier    document et remettre le bon document fini dans le dossier document, remettre toutes les images, que les utiles enlevé les inutiles
-
-contrôler tout les liens html
-
-contrôler toutes les images
 
 copier image dans le dossier document
 
