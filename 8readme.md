@@ -56,6 +56,9 @@ Mais aussi, si vous tomber dans le catalogue sur une voiture qui vous intéresse
     organisation code
     image like qui change quand on clique dessus
 
+style.css
+    trier style inutile
+
 document word :
     refaire le plan
     changer le texte en enlevant la partie des filtres
