@@ -114,3 +114,10 @@ ul {
 ul {
     list-style-type:none;
 }
+.downC{
+    color: rgb(251, 85, 0); 
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    bottom:0;
+
+}
