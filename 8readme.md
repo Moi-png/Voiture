@@ -32,7 +32,6 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
 5.RegarderUneVoiture.html
     Image au bon endroit
     Texte bien aligné
-    lien qui fonctionne
     espace entre texte
     revenir à la page d'acceuil au bon endroit
 
@@ -42,7 +41,6 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
 6.RegarderUneVoiture.html
     Image au bon endroit
     Texte bien aligné
-    lien qui fonctionne
     espace entre texte
     revenir à la page d'acceuil au bon endroit
 
