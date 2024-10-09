@@ -24,9 +24,7 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
     Texte fixé à l'image si on dezoom
 
 5.Compte.html
-    lien vers voitures
-    taille image
-    séparation entre texte et image
+    Texte fixé à l'image si on dezoom
 
 5.Contact.html
     Texte fixé à l'image si on dezoom
@@ -36,6 +34,8 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
     Texte bien aligné
     lien qui fonctionne
     espace entre texte
+    revenir au compte
+    revenir à la page d'acceuil
 
 6.AjoutDeVoiture.html
     Texte fixé à l'image si on dezoom
@@ -45,6 +45,8 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
     Texte bien aligné
     lien qui fonctionne
     espace entre texte
+    revenir au compte
+    revenir à la page d'acceuil
 
 document word :
     refaire le plan
