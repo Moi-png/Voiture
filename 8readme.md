@@ -21,6 +21,7 @@ Mais aussi, si vous tomber dans le catalogue sur une voiture qui vous intéresse
 
 3.Déconnection.html
     Texte fixé à l'image si on dezoom
+    comment y avoir accès?
 
 3.WelcomeNewUser.html
     Texte fixé à l'image si on dezoom
