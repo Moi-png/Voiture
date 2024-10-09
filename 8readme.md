@@ -30,7 +30,6 @@ Mais aussi, si vous tomber dans le catalogue sur une voiture qui vous intéresse
 
 5.Comparatif.html
     Texte fixé à l'image si on dezoom
-    organisation code
 
 5.Compte.html
     Texte fixé à l'image si on dezoom
