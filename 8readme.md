@@ -34,7 +34,7 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
     Texte bien aligné
     lien qui fonctionne
     espace entre texte
-    revenir à la page d'acceuil, downC bug
+    revenir à la page d'acceuil au bon endroit
 
 6.AjoutDeVoiture.html
     Texte fixé à l'image si on dezoom
@@ -44,7 +44,7 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
     Texte bien aligné
     lien qui fonctionne
     espace entre texte
-    revenir à la page d'acceuil, downC bug
+    revenir à la page d'acceuil au bon endroit
 
 document word :
     refaire le plan
