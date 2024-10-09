@@ -21,7 +21,7 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
     Texte fixé à l'image si on dezoom
 
 5.Comparatif.html
-    Taille image
+    Texte fixé à l'image si on dezoom
 
 5.Compte.html
     lien vers voitures
