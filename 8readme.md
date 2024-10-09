@@ -4,6 +4,5 @@ NEED 4 STATS est un site créé par des fans de voiture, pour des fans de voitur
 
 
 
-Cheker si image fonctionne dans autre dossier
 
 contrôler orthographe
