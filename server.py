@@ -31,7 +31,7 @@ def load_connected_user():
 
 @app.route("/")
 def index():
-    return render_template("templates/1.PageTitre.html.mako")
+    return render_template("1.PageTitre.html.mako")
 
 
 @app.route("/login")
@@ -39,7 +39,7 @@ def login():
     if "user_id" in session:
         return redirect(url_for('welcome'))
     if request.method == "GET":
-        return render_template("templates/2.Login.html.mako", error=None)
+        return render_template("2.Login.html.mako", error=None)
     elif request.method == "POST":
         db = get_db()
         try:
@@ -54,13 +54,13 @@ def login():
             app.logger.info("LOG IN '%s' (id=%d)", user['pseudo'], user['id'])
             return redirect(url_for("welcome"), code=303)
         except ValidationError as e:
-            return render_template("templates/2.Login.html.mako", error=str(e))
+            return render_template("2.Login.html.mako", error=str(e))
 
 
 @app.route("/register")
 def register():
     if request.method == "GET":
-        return render_template("templates/2.Register.html.mako", error=None)
+        return render_template("2.Register.html.mako", error=None)
     elif request.method == "POST":
         db = get_db()
         try:
@@ -75,9 +75,9 @@ def register():
             db.commit()
             return redirect(url_for("welcome"), code=303)
         except sqlite3.IntegrityError as e:
-            return render_template("templates/2.Register.html.mako", error='Nom d\'utilisateur déjà pris')
+            return render_template("2.Register.html.mako", error='Nom d\'utilisateur déjà pris')
         except ValidationError as e:
-            return render_template("templates/2.Register.html.mako", error=str(e))
+            return render_template("2.Register.html.mako", error=str(e))
         finally :
             db.rollback()
 
@@ -89,13 +89,13 @@ def profile(pseudo):
     user = cursor.fetchone()
     if user is None:
         abort(404)
-    return render_template("templates/5.Compte.html.mako", pseudo=pseudo, user=user)
+    return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return render_template("templates/3.Deconnection.html.mako")
+    return render_template("3.Deconnection.html.mako")
 
 
 class ValidationError(ValueError):
