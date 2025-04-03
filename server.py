@@ -30,7 +30,8 @@ def load_connected_user():
 
 @app.route("/")
 def index():
-    return "COUCOU"  # Réponse envoyée au client.
+    return render_template("1.PageTitre.html")  # Réponse envoyée au client.
+
 
 @app.route("/clock")
 def clock():
