@@ -4,8 +4,7 @@ create table users (
   id integer primary key,
   email text unique not null,
   pseudo text unique not null,
-  password text not null,
-  FOREIGN KEY (voiture_id)
+  password text not null
 );
 
 create table voiture (
