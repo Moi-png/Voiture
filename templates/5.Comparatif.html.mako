@@ -102,6 +102,6 @@
         <p>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/IVK2K_yxWmQ?si=ErZMMNNv--WGZSlO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </p>
-        <a href="4.Page d'acceuil.html"> Revenir a la page d'accueil </a>
+        <a href="4.Page d'acceuil.html.mako"> Revenir a la page d'accueil </a>
     </body>
 </html>

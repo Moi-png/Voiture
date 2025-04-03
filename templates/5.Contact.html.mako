@@ -7,7 +7,7 @@
         <title>Contact</title>
     </head>
     <body>
-        <a href="4.Page d'acceuil.html"> Retour à la page d'accueil </a>
+        <a href="4.Page d'acceuil.html.mako"> Retour à la page d'accueil </a>
         <br>
         <br>
         <div class="center">

@@ -15,7 +15,7 @@
     </script>
     <body>
         <div class="center">
-            <a class="Gauche" href="1.PageTitre.html"><img src="../static/7Goodbye.png" alt="plage" width="" height=""></img></a>
+            <a class="Gauche" href="1.PageTitre.html.mako"><img src="../static/7Goodbye.png" alt="plage" width="" height=""></img></a>
         </div>
     </body>
 </html>

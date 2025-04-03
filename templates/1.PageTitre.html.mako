@@ -24,13 +24,13 @@
         <br>
         <br>
         <h2>
-            <a href="2.Register.html">S'inscrire</a>
+            <a href="2.Register.html.mako">S'inscrire</a>
         </h2>
         <h2>
-            <a href="2.Login.html">Se connecter</a>
+            <a href="2.Login.html.mako">Se connecter</a>
         </h2>
         <h2>
-            Si vous êtes déjà connecté, cliquez <a href="4.Page d'acceuil.html">ici</a>
+            Si vous êtes déjà connecté, cliquez <a href="4.Page d'acceuil.html.mako">ici</a>
         </h2>
     </body>
 </html>
