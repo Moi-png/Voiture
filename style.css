@@ -1,5 +1,5 @@
 body{
-    background-image: url('7dbackground.jpg');
+    background-image: url('Images/7dbackground.jpg');
     background-size: cover;
     background-repeat: 100000;
     color:  rgb(251, 85, 0)
@@ -13,7 +13,7 @@ a{
     text-align:center;
 }
 form{
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     text-align:center;
 }
@@ -29,24 +29,24 @@ input{
     font-family:'Franklin Gothic Medium';
 }
 ul {
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     text-align:center;
     list-style-type:none;
 }
 h1{
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
-    text-align:center;   
+    text-align:center;
 }
 h2{
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     text-align:center;
 }
 .Gauche{
-    color: rgb(251, 85, 0); 
-    font-family:'Franklin Gothic Medium'; 
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
     text-align: left;
     display: flex;
     position: fixed;
@@ -90,7 +90,7 @@ h2{
 }
 
 .downL {
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     position:fixed;
     left:0;
@@ -98,26 +98,26 @@ h2{
 
 }
 .CL {
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     position:fixed;
     left:0;
 }
 .CR {
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     position:fixed;
     right:0;
 }
 .downR {
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     position:fixed;
     right:0;
     bottom:0;
 }
 .downC{
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     bottom:0;
     position: fixed;
@@ -130,7 +130,7 @@ h2{
     margin:10px;
 }
 .mid{
-    color: rgb(251, 85, 0); 
+    color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     position:fixed;
     justify-content: center;
