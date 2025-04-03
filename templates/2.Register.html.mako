@@ -10,14 +10,14 @@
         function redirectAfterSubmit(event) {
             event.preventDefault();
             alert("Vous êtes connecté !");
-            window.location.href = "3.WelcomeNewUser.html.mako";
+            window.location.href = "${url_for('welcome')";
         }
     </script>
     <body class="center">
         <div class="top-text">
             <br>
             <p>
-                Pour vous connecter, suivez <a href="2.Login.html.mako">ce lien</a>
+                Pour vous connecter, suivez <a href="${url_for('login')">ce lien</a>
             </p>
             <br>
         </div>

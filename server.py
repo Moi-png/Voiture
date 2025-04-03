@@ -98,6 +98,10 @@ def logout():
     return render_template("3.Deconnection.html.mako")
 
 
+@app.route("/welcome")
+def welcome():
+    return render_template("3.WelcomeNewUser.html.mako")
+
 class ValidationError(ValueError):
     """Error in users provided values."""
     pass
