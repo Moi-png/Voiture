@@ -2,8 +2,8 @@ pragma encoding="UTF-8";
 
 create table users (
   id integer primary key,
-  email text unique not null,
-  pseudo text unique not null,
+  email text not null,
+  pseudo text not null,
   password text not null
 );
 

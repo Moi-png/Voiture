@@ -24,7 +24,7 @@
         <form onsubmit="redirectAfterSubmit(event)">
             <div class="form-example">
                 <label for="name">Pseudo : </label>
-                <input type="text" name="pseudo" id="pseudo" required />
+                <input type="text" name="pseudo" id="name" required />
             </div>
             <br>
             <div class="form-example">
@@ -35,6 +35,11 @@
             <div>
                 <label for="pass">Mot de passe (8 caractères minimum) : </label>
                 <input type="password" id="pass" name="password" minlength="8" +required />
+            </div>
+            <br>
+            <div>
+                <label for="pass">Confirmez le mot de passe : </label>
+                <input type="password" id="pass" name="confirm_password" minlength="8" +required />
             </div>
             <br>
             <div class="form-example">

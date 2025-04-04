@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="center">
-            <a href="4.Page d'acceuil.html.mako"><img src="../static/7bienvenue sur n4s.png" alt="plage" width="" height="280"></img></a>
+            <a href="${url_for('acceuil')}"><img src="../static/7bienvenue sur n4s.png" alt="plage" width="" height="280"></img></a>
         </div>
     </body>
 </html>
