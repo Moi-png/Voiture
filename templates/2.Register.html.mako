@@ -10,11 +10,12 @@
         <div class="top-text">
             <br>
             <p>
-                Pour vous connecter, suivez <a href="${url_for('login')}">ce lien</a>
+                Pour vous connecter, suivez <a href="{{ url_for('login') }}">ce lien</a>
             </p>
             <br>
         </div>
-        <form method="POST">
+
+        <form action="{{ url_for('register') }}" method="POST">
             <div class="form-example">
                 <label for="pseudo">Pseudo : </label>
                 <input type="text" name="pseudo" id="pseudo" required />

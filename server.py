@@ -14,6 +14,7 @@ from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
 from random import randint
 import sqlite3
+from werkzeug.exceptions import BadRequest
 
 def get_db():
     conn = sqlite3.connect("test.db")
@@ -52,7 +53,7 @@ def register():
         password = request.form["password"]
         confirm_password = request.form["confirm_password"]
         if password != confirm_password:
-            raise ValidationError("Mot de passe mal confirmé!")
+            raise BadRequest("Les mots de passe ne correspondent pas!")
         db.execute(
             """
             INSERT INTO users (email, pseudo, password)
@@ -65,7 +66,7 @@ def register():
     except sqlite3.IntegrityError:
         db.rollback()
         return render_template("2.Register.html.mako", error="Nom d'utilisateur déjà pris")
-    except ValidationError as e:
+    except BadRequest as e:
         return render_template("2.Register.html.mako", error=str(e))
     finally:
         db.close()
