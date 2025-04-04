@@ -10,21 +10,21 @@
         function redirectAfterSubmit(event) {
             event.preventDefault();
             alert("Vous êtes connecté !");
-            window.location.href = "${url_for('welcome')";
+            window.location.href = "${url_for('welcome')}";
         }
     </script>
     <body class="center">
         <div class="top-text">
             <br>
             <p>
-                Pour vous connecter, suivez <a href="${url_for('login')">ce lien</a>
+                Pour vous connecter, suivez <a href="${url_for('login')}">ce lien</a>
             </p>
             <br>
         </div>
         <form onsubmit="redirectAfterSubmit(event)">
             <div class="form-example">
                 <label for="name">Pseudo : </label>
-                <input type="text" name="name" id="name" required />
+                <input type="text" name="pseudo" id="pseudo" required />
             </div>
             <br>
             <div class="form-example">
