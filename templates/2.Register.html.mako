@@ -6,25 +6,18 @@
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Formulaire d'inscription</title>
     </head>
-    <script>
-        function redirectAfterSubmit(event) {
-            event.preventDefault();
-            alert("Vous êtes connecté !");
-            window.location.href = "${url_for('welcome')";
-        }
-    </script>
     <body class="center">
         <div class="top-text">
             <br>
             <p>
-                Pour vous connecter, suivez <a href="${url_for('login')">ce lien</a>
+                Pour vous connecter, suivez <a href="${url_for('login')}">ce lien</a>
             </p>
             <br>
         </div>
-        <form onsubmit="redirectAfterSubmit(event)">
+        <form method="POST">
             <div class="form-example">
-                <label for="name">Pseudo : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="pseudo">Pseudo : </label>
+                <input type="text" name="pseudo" id="pseudo" required />
             </div>
             <br>
             <div class="form-example">
@@ -34,7 +27,12 @@
             <br>
             <div>
                 <label for="pass">Mot de passe (8 caractères minimum) : </label>
-                <input type="password" id="pass" name="password" minlength="8" +required />
+                <input type="password" id="pass" name="password" minlength="8" required />
+            </div>
+            <br>
+            <div>
+                <label for="confirm_pass">Confirmez le mot de passe : </label>
+                <input type="password" id="confirm_pass" name="confirm_password" minlength="8" required />
             </div>
             <br>
             <div class="form-example">

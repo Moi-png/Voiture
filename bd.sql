@@ -1,8 +1,8 @@
 pragma encoding="UTF-8";
 
 create table users (
-  id integer primary key,
-  email text unique not null,
+  id integer PRIMARY KEY AUTOINCREMENT,
+  email text not null,
   pseudo text unique not null,
   password text not null
 );
@@ -27,3 +27,6 @@ create table voiture (
     marque text not null,
     lienimage text not null
 );
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS voiture;
