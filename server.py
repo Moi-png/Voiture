@@ -2,9 +2,11 @@
 """Server Web d'exemple écrit en Python avec Flask.
 """
 
+
 # S'assure de pouvoir démarrer le serveur depuis n'importe quel dossier.
 import os
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
 
 from flask import Flask, abort, url_for, request, redirect, session  # Importe le type Flask.
 from datetime import datetime
@@ -12,6 +14,7 @@ from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
 from random import randint
 import sqlite3
+
 
 app = Flask("SuperSite")  # Crée une application Flask nommée "SuperSite".
 app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
