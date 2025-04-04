@@ -29,8 +29,5 @@
         <h2>
             <a href="${url_for('login')}">Se connecter</a>
         </h2>
-        <h2>
-            Si vous êtes déjà connecté, cliquez ici
-        </h2>
     </body>
 </html>

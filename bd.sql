@@ -7,6 +7,8 @@ create table users (
   password text not null
 );
 
+INSERT INTO users (pseudo, email, password) VALUES ("kira", "kira@gmail.com", "ssssssss")
+
 create table voiture (
     id integer primary key,
     signal integer not null,
@@ -30,3 +32,5 @@ create table voiture (
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS voiture;
+
+

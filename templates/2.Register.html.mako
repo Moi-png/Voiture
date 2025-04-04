@@ -6,13 +6,6 @@
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Formulaire d'inscription</title>
     </head>
-    <script>
-        function redirectAfterSubmit(event) {
-            event.preventDefault();
-            alert("Vous êtes connecté !");
-            window.location.href = "${url_for('welcome')}";
-        }
-    </script>
     <body class="center">
         <div class="top-text">
             <br>
@@ -21,31 +14,34 @@
             </p>
             <br>
         </div>
-        <form onsubmit="redirectAfterSubmit(event)">
+        <form method = "POST">
             <div class="form-example">
-                <label for="name">Pseudo : </label>
-                <input type="text" name="pseudo" id="name" required />
+                <label for="pseudo">Pseudo : </label>
+                <input class="field" type="text" name="pseudo" id="pseudo" required />
             </div>
             <br>
             <div class="form-example">
                 <label for="email">Email : </label>
-                <input type="email" name="email" id="email" required />
+                <input class="field" type="email" name="email" id="email" required />
             </div>
             <br>
             <div>
                 <label for="pass">Mot de passe (8 caractères minimum) : </label>
-                <input type="password" id="pass" name="password" minlength="8" +required />
+                <input class="field" type="password" id="pass" name="password" minlength="8" +required />
             </div>
             <br>
             <div>
                 <label for="pass">Confirmez le mot de passe : </label>
-                <input type="password" id="pass" name="confirm_password" minlength="8" +required />
+                <input class="field" type="password" id="pass" name="confirm_password" minlength="8" +required />
             </div>
             <br>
             <div class="form-example">
-                <input type="submit" value="S'inscrire"/>
+                <input class="field" type="submit" value="S'inscrire"/>
             </div>
         </form>
+        % if error is not None :
+            <p style="color: red">ERREUR: ${error}</p>
+        % endif
     </body>
 </html>
 

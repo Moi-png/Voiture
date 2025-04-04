@@ -10,47 +10,76 @@ from random import randint
 from sqlite3 import *
 
 app = Flask("NEED4STATS")
+app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
 MakoTemplates(app)
 SQLiteExtension(app)
 
+class ValidationError(ValueError):
+    """Error in users provided values."""
+    pass
+
 @app.route("/")
 def index():
+    if "user_id" in session:
+        return redirect(url_for('acceuil'))
     return render_template("1.PageTitre.html.mako")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if "user_id" in session:
+        return redirect(url_for('acceuil'))
     if request.method == "GET":
-        return render_template("2.Register.html.mako", erroe=None)
-    if request.method == "POST":
-        pseudo = request.form.get("pseudo")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        confirm_password = request.form.get("confirm_password")
-
-        if not pseudo or not email or not password or not confirm_password:
-            return "Tous les champs sont requis.", 400
-
-        if password != confirm_password:
-            return "Les mots de passe ne correspondent pas.", 400
-
-        db = get_db()
-        cursor = db.cursor()
-
-        # Vérifier si l'utilisateur existe déjà
-        cursor.execute("SELECT id FROM user WHERE email = ? OR pseudo = ?", (email, pseudo))
-        if cursor.fetchone():
-            return "L'email ou le pseudo est déjà utilisé.", 400
-
-        # Insérer l'utilisateur
-        cursor.execute("INSERT INTO user (pseudo, email, password) VALUES (?, ?, ?)", (pseudo, email, password))
-        db.commit()
-
-        return redirect(url_for("welcome"))
-
-    return render_template("2.Register.html.mako")
+        return render_template("2.Register.html.mako", error=None)
+    elif request.method == "POST":
+        try:
+            if request.form["password"] != request.form["confirm_password"]:
+                raise ValidationError("Les mots de passe ne correspondent pas.")
+            db = get_db()
+            db.execute(
+                """
+                INSERT INTO users (pseudo, email, password)
+                VALUES (?,?,?);
+                """,
+                (request.form["pseudo"], request.form["email"], request.form["password"]))
+            db.commit()
+            return redirect("welcome", code=303)
+        except ValidationError as e:
+            return render_template("2.Register.html.mako", error=str(e))
 
 @app.route("/welcome")
 def welcome():
     return render_template("3.WelcomeNewUser.html.mako")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if "user_id" in session:
+        return redirect(url_for('acceuil'))
+    if request.method == "GET":
+        return render_template("2.Login.html.mako", error=None)
+    elif request.method == "POST":
+        try:
+            db = get_db()
+            cursor = db.execute("SELECT * FROM users WHERE pseudo=? LIMIT 1",
+                                (request.form["pseudo"],))
+            user = cursor.fetchone()
+            if user is None:
+                raise ValidationError("Pseudo invalide")
+            if user["password"] != request.form["password"]:
+                raise ValidationError("Mot de passe invalide")
+            session.clear()
+            session["user_id"] = user["id"]
+            app.logger.info("LOG IN '%s' (id=%d)", user['pseudo'], user['id'])
+            return redirect(url_for("acceuil"), code=303)
+        except ValidationError as e:
+            return render_template("2.Login.html.mako", error=str(e))
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return render_template("3.Deconnection.html.mako")
+
+@app.route("/acceuil")
+def acceuil():
+    return render_template("4.Page d'acceuil.html.mako")
 
 app.run(debug=True)

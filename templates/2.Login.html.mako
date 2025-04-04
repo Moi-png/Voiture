@@ -6,18 +6,11 @@
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Formulaire de connection</title>
     </head>
-    <script>
-        function redirectAfterSubmit(event) {
-            event.preventDefault();
-            alert("Vous êtes connecté !");
-            window.location.href = "4.Page d'acceuil.html.mako";
-        }
-    </script>
     <body class="center">
         <div class="top-text">
             <br>
             <p>
-                Pour vous inscrire, suivez <a href="2.Register.html.mako">ce lien</a>
+                Pour vous inscrire, suivez <a href="${url_for('register')}">ce lien</a>
             </p>
             <br>
         </div>

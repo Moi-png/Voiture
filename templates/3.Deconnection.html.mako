@@ -6,16 +6,9 @@
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Formulaire de déconnection</title>
     </head>
-    <script>
-        function redirectAfterSubmit(event) {
-            event.preventDefault();
-            alert("Vous êtes déconnecté !");
-            window.location.href = "1.PageTitre.htm";
-        }
-    </script>
     <body>
         <div class="center">
-            <a class="Gauche" href="1.PageTitre.html.mako"><img src="../static/7Goodbye.png" alt="plage" width="" height=""></img></a>
+            <a class="Gauche" href="${url_for('login')}"><img src="../static/7Goodbye.png" alt="plage" width="" height=""></img></a>
         </div>
     </body>
 </html>
