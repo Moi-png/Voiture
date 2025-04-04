@@ -1,10 +1,10 @@
 pragma encoding="UTF-8";
 
-CREATE TABLE users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  email TEXT NOT NULL,
-  pseudo TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+create table users (
+  id integer primary key,
+  email text unique not null,
+  pseudo text unique not null,
+  password text not null
 );
 
 create table voiture (

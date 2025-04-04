@@ -2,11 +2,9 @@
 """Server Web d'exemple écrit en Python avec Flask.
 """
 
-
 # S'assure de pouvoir démarrer le serveur depuis n'importe quel dossier.
 import os
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-
 
 from flask import Flask, abort, url_for, request, redirect, session  # Importe le type Flask.
 from datetime import datetime
@@ -14,12 +12,6 @@ from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
 from random import randint
 import sqlite3
-from werkzeug.exceptions import BadRequest
-
-def get_db():
-    conn = sqlite3.connect("test.db")
-    conn.row_factory = sqlite3.Row
-    return conn
 
 app = Flask("SuperSite")  # Crée une application Flask nommée "SuperSite".
 app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
@@ -36,42 +28,9 @@ def load_connected_user():
         user = cursor.fetchone
         return user
 
-
 @app.route("/")
 def index():
     return render_template("1.PageTitre.html.mako")
-
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "GET":
-        return render_template("2.Register.html.mako", error=None)
-    db = get_db()
-    try:
-        email = request.form["email"]
-        pseudo = request.form["pseudo"]
-        password = request.form["password"]
-        confirm_password = request.form["confirm_password"]
-        if password != confirm_password:
-            raise BadRequest("Les mots de passe ne correspondent pas!")
-        db.execute(
-            """
-            INSERT INTO users (email, pseudo, password)
-            VALUES (?, ?, ?);
-            """,
-            (email, pseudo, password)
-        )
-        db.commit()
-        return redirect(url_for("welcome"), code=303)
-    except sqlite3.IntegrityError:
-        db.rollback()
-        return render_template("2.Register.html.mako", error="Nom d'utilisateur déjà pris")
-    except BadRequest as e:
-        return render_template("2.Register.html.mako", error=str(e))
-    finally:
-        db.close()
-
-
 
 @app.route("/login")
 def login():
@@ -95,6 +54,29 @@ def login():
         except ValidationError as e:
             return render_template("2.Login.html.mako", error=str(e))
 
+@app.route("/register")
+def register():
+    if request.method == "GET":
+        return render_template("2.Register.html.mako", error=None)
+    elif request.method == "POST":
+        db = get_db()
+        try:
+            if request.form["password"] != request.form["confirm_password"]:
+                raise ValidationError("Mot de passe mal confirmé!")
+            db.execute(
+                """
+                INSERT INTO users (pseudo, password, created_at)
+                VALUES (?, ?, ?);
+                """,
+                (request.form["pseudo"], request.form["password"], today()))
+            db.commit()
+            return redirect(url_for("welcome"), code=303)
+        except sqlite3.IntegrityError as e:
+            return render_template("2.Register.html.mako", error='Nom d\'utilisateur déjà pris')
+        except ValidationError as e:
+            return render_template("2.Register.html.mako", error=str(e))
+        finally :
+            db.rollback()
 
 @app.route("/profile/<pseudo>")
 def profile(pseudo):
@@ -105,12 +87,10 @@ def profile(pseudo):
         abort(404)
     return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
-
 @app.route("/logout")
 def logout():
     session.clear()
     return render_template("3.Deconnection.html.mako")
-
 
 @app.route("/welcome")
 def welcome():
@@ -119,7 +99,6 @@ def welcome():
 class ValidationError(ValueError):
     """Error in users provided values."""
     pass
-
 
 
 
