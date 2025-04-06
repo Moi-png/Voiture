@@ -14,6 +14,14 @@ app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
 MakoTemplates(app)
 SQLiteExtension(app)
 
+def load_connected_user():
+    user_id = session.get("user_id")
+    if user_id is not None:
+        db = get_db()
+        cursor = db.execute("SELECT * FROM users WHERE id = ? LIMIT 1", (user_id,))
+        user = cursor.fetchone()
+        return user
+
 class ValidationError(ValueError):
     """Error in users provided values."""
     pass
@@ -83,8 +91,11 @@ def acceuil():
     return render_template("4.Page d'acceuil.html.mako")
 
 @app.route("/profile")
-def profile():
-    return render_template("5.Compte.html.mako")
+def profile(pseudo):
+    db = get_db()
+    cursor = db.execute("SELECT * FROM users WHERE pseudo = ?", (pseudo,))
+    user = cursor.fetchone()
+    return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
 @app.route("/garage")
 def garage():
