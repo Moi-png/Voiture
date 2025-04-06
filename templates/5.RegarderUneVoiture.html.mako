@@ -48,7 +48,7 @@
         <h5>
             <img class ="downL" id="heartButton" src="../static/7likeV.png" alt="coeur blanc" width="100" height="100" onclick="this.src = this.src.includes('../static/7likeV.png') ? '../static/7likeP.png' : '../static/7likeV.png'"></img>
             <a class ="downR" href="6.AjoutDeVoiture.html.mako"><img src="../static/7+.png" alt="plage" width="100" height="100"></img></a>
-            <a class ="downC" href="4.Page d'acceuil.html.mako"><img src="../static/7ACCEUIL.png" alt="plage" width="100" height=""></img></a>
+            <a class ="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="100" height=""></img></a>
         </h5>
     </body>
 </html>

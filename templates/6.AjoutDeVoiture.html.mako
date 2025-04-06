@@ -7,7 +7,7 @@
         <title>Ajouter une voiture</title>
     </head>
     <body>
-        <a href="5.RegarderUneVoiture.html.mako"> Revenir au catalogue </a>
+        <a href="${url_for('garage')}"> Revenir au catalogue </a>
         <br>
         <form>
             <br>

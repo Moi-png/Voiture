@@ -82,4 +82,24 @@ def logout():
 def acceuil():
     return render_template("4.Page d'acceuil.html.mako")
 
+@app.route("/profile")
+def profile():
+    return render_template("5.Compte.html.mako")
+
+@app.route("/garage")
+def garage():
+    return render_template("5.RegarderUneVoiture.html.mako")
+
+@app.route("/comparatif")
+def comparatif():
+    return render_template("5.Comparatif.html.mako")
+
+@app.route("/contact")
+def contact():
+    return render_template("5.Contact.html.mako")
+
+@app.route("/ajout")
+def ajout():
+    return render_template("6.AjoutDeVoiture.html.mako")
+
 app.run(debug=True)

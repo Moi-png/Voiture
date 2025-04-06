@@ -8,21 +8,21 @@
     </head>
     <body>
         <h4>
-            <a class="Droite" href="3.Deconnection.html.mako"> Déconnection </a>
-            <a class="Gauche" href="5.Compte.html.mako"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
+            <a class="Droite" href="${url_for('logout')}"> Déconnection </a>
+            <a class="Gauche" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
         </h4>
         <br>
         <br>
         <br>
-        <a href="5.Comparatif.html.mako"><img src="../static/7vs.png" alt="plage" width="280" height="180"></img></a>
+        <a href="${url_for('comparatif')}"><img src="../static/7vs.png" alt="plage" width="280" height="180"></img></a>
         <br>
         <br>
         <br>
-        <a href="5.RegarderUneVoiture.html.mako"><img src="../static/7garage.png" alt="plage" width="280" height="210"></img></a>
+        <a href="${url_for('garage')}"><img src="../static/7garage.png" alt="plage" width="280" height="210"></img></a>
         <br>
         <br>
         <br>
         <br>
-        <a href="5.Contact.html.mako"><img src="../static/7phone.png" alt="plage" width="80" height="80"></img><img src="../static/7mail.png" alt="plage" width="75" height="75"></img></a></li>
+        <a href="${url_for('contact')}"><img src="../static/7phone.png" alt="plage" width="80" height="80"></img><img src="../static/7mail.png" alt="plage" width="75" height="75"></img></a></li>
     </body>
 </html>
