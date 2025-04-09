@@ -91,15 +91,19 @@ def acceuil():
     return render_template("4.Page d'acceuil.html.mako")
 
 @app.route("/profile")
-def profile(pseudo):
-    db = get_db()
-    cursor = db.execute("SELECT * FROM users WHERE pseudo = ?", (pseudo,))
-    user = cursor.fetchone()
-    return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
+def profile():
+    # db = get_db()
+    # cursor = db.execute("SELECT * FROM users WHERE pseudo = ?", (pseudo,))
+    # user = cursor.fetchone()
+    return render_template("5.Compte.html.mako") #, pseudo=pseudo, user=user
 
 @app.route("/garage")
 def garage():
     return render_template("5.RegarderUneVoiture.html.mako")
+
+@app.route("/garagee")
+def garagee():
+    return render_template("6.RegarderUneVoiture2.html.mako")
 
 @app.route("/comparatif")
 def comparatif():

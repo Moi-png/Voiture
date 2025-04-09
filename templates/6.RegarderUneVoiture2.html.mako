@@ -8,9 +8,9 @@
     </head>
     <body>
         <h4>
-            <a class="Droite" href="5.RegarderUneVoiture.html.mako"><img src="../static/7fdroit.png" alt="plage" width="80" height="80"></img></a>
-            <a class="Gauche" href="5.RegarderUneVoiture.html.mako"><img src="../static/7fgauche.png" alt="plage" width="80" height="80"></img></a>
-            <a class="Centre" href="5.Compte.html.mako"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
+            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="80" height="80"></img></a>
+            <a class="Gauche" href="${url_for('garage')}"><img src="../static/7fgauche.png" alt="plage" width="80" height="80"></img></a>
+            <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
         </h4>
         <p class="center-voiture" class="Gauche">
             Ferrari F430
@@ -47,7 +47,7 @@
         </p>
         <h5>
             <img class ="downL" id="heartButton" src="../static/7likeV.png" alt="coeur blanc" width="100" height="100" onclick="this.src = this.src.includes('../static/7likeV.png') ? '../static/7likeP.png' : '../static/7likeV.png'"></img>
-            <a class ="downR" href="6.AjoutDeVoiture.html.mako"><img src="../static/7+.png" alt="plage" width="100" height="100"></img></a>
+            <a class ="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="100" height="100"></img></a>
             <a class ="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="100" height=""></img></a>
         </h5>
     </body>

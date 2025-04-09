@@ -15,11 +15,11 @@
         <p class="Centre">
             <a href="${url_for('garage')}"><img src="../static/7LamborghiniGallardoD.jpg" alt="plage" width="" height="300"></img></a>
         </p>
-        <h1>Profile de ${pseudo}</h1>
-        <ul>
-            <li>id: ${user['id']}</li>
-            <li>Pseudo: ${user['pseudo']}</li>
-            <li>Password: ${user['password']}</li>
-        </ul>
+        ## <h1>Profile de ${pseudo}</h1>
+        ## <ul>
+        ##    <li>id: ${user['id']}</li>
+        ##    <li>Pseudo: ${user['pseudo']}</li>
+        ##    <li>Password: ${user['password']}</li>
+        ## </ul>
     </body>
 </html>
