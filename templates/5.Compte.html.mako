@@ -12,14 +12,16 @@
             Vos voitures likées
             <br>
         </p>
-        <p class="Centre">
-            <a href="${url_for('garage')}"><img src="../static/7LamborghiniGallardoD.jpg" alt="plage" width="" height="300"></img></a>
-        </p>
-        ## <h1>Profile de ${pseudo}</h1>
-        ## <ul>
-        ##    <li>id: ${user['id']}</li>
-        ##    <li>Pseudo: ${user['pseudo']}</li>
-        ##    <li>Password: ${user['password']}</li>
-        ## </ul>
+        ##<p class="Centre">
+          ##  <a href="${url_for('garage')}"><img src="../static/7LamborghiniGallardoD.jpg" alt="plage" width="" height="300"></img></a>
+        ##</p>
+        <div class="center">
+        <h1>Profil de ${pseudo}</h1>
+        <ul>
+            <li>ID: ${user['id']}</li>
+            <li>Pseudo: ${user['pseudo']}</li>
+            <li>Email: ${user['email']}</li>
+        </ul>
+        </div>
     </body>
 </html>

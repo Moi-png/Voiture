@@ -14,17 +14,20 @@
             </p>
             <br>
         </div>
-        <form onsubmit="redirectAfterSubmit(event)">
+        % if error:
+            <p style="color: red;">${error}</p>
+        % endif
+        <form method="POST" action="">
             <div class="form-example">
-                <label for="name">Pseudo : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="pseudo">Pseudo : </label>
+                <input type="text" name="pseudo" id="pseudo" required />
             </div>
             <br>
             <div>
                 <label for="pass">Mot de passe : </label>
-                <input type="password" id="pass" name="password" minlength="8" +required />
+                <input type="password" id="pass" name="password" minlength="8" required />
             </div>
-              <br>
+            <br>
             <div class="form-example">
                 <input type="submit" value="Se connecter"/>
             </div>

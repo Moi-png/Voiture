@@ -8,6 +8,7 @@ from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
 from random import randint
 from sqlite3 import *
+from functools import wraps
 
 app = Flask("NEED4STATS")
 app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
@@ -22,17 +23,27 @@ def load_connected_user():
         user = cursor.fetchone()
         return user
 
+def redirect_if_logged_in(view_func):
+    @wraps(view_func)
+    def wrapped_view(*args, **kwargs):
+        if "user_id" in session:
+            return redirect(url_for("acceuil"))
+        return view_func(*args, **kwargs)
+    return wrapped_view
+
 class ValidationError(ValueError):
     """Error in users provided values."""
     pass
 
 @app.route("/")
+@redirect_if_logged_in
 def index():
     if "user_id" in session:
         return redirect(url_for('acceuil'))
     return render_template("1.PageTitre.html.mako")
 
 @app.route("/register", methods=["GET", "POST"])
+@redirect_if_logged_in
 def register():
     if "user_id" in session:
         return redirect(url_for('acceuil'))
@@ -50,15 +61,20 @@ def register():
                 """,
                 (request.form["pseudo"], request.form["email"], request.form["password"]))
             db.commit()
+            user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            session.clear()
+            session["user_id"] = user_id
             return redirect("welcome", code=303)
         except ValidationError as e:
             return render_template("2.Register.html.mako", error=str(e))
 
 @app.route("/welcome")
+@redirect_if_logged_in
 def welcome():
     return render_template("3.WelcomeNewUser.html.mako")
 
 @app.route("/login", methods=["GET", "POST"])
+@redirect_if_logged_in
 def login():
     if "user_id" in session:
         return redirect(url_for('acceuil'))
@@ -74,6 +90,7 @@ def login():
                 raise ValidationError("Pseudo invalide")
             if user["password"] != request.form["password"]:
                 raise ValidationError("Mot de passe invalide")
+
             session.clear()
             session["user_id"] = user["id"]
             app.logger.info("LOG IN '%s' (id=%d)", user['pseudo'], user['id'])
@@ -92,10 +109,13 @@ def acceuil():
 
 @app.route("/profile")
 def profile():
-    # db = get_db()
-    # cursor = db.execute("SELECT * FROM users WHERE pseudo = ?", (pseudo,))
-    # user = cursor.fetchone()
-    return render_template("5.Compte.html.mako") #, pseudo=pseudo, user=user
+    user = load_connected_user()
+    if user is None:
+        return redirect(url_for("login"))
+    pseudo = user["pseudo"]
+    user_id = user["id"]
+    email = user["email"]
+    return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
 @app.route("/garage")
 def garage():
