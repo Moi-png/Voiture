@@ -7,7 +7,6 @@ create table users (
   password text not null
 );
 
-INSERT INTO users (pseudo, email, password) VALUES ("kira", "kira@gmail.com", "ssssssss")
 
 create table voiture (
     id integer primary key,
