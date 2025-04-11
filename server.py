@@ -38,15 +38,11 @@ class ValidationError(ValueError):
 @app.route("/")
 @redirect_if_logged_in
 def index():
-    if "user_id" in session:
-        return redirect(url_for('acceuil'))
     return render_template("1.PageTitre.html.mako")
 
 @app.route("/register", methods=["GET", "POST"])
 @redirect_if_logged_in
 def register():
-    if "user_id" in session:
-        return redirect(url_for('acceuil'))
     if request.method == "GET":
         return render_template("2.Register.html.mako", error=None)
     elif request.method == "POST":
@@ -76,8 +72,6 @@ def welcome():
 @app.route("/login", methods=["GET", "POST"])
 @redirect_if_logged_in
 def login():
-    if "user_id" in session:
-        return redirect(url_for('acceuil'))
     if request.method == "GET":
         return render_template("2.Login.html.mako", error=None)
     elif request.method == "POST":
@@ -100,18 +94,23 @@ def login():
 
 @app.route("/logout")
 def logout():
-    session.clear()
-    return render_template("3.Deconnection.html.mako")
+    if "user_id" in session:
+        session.clear()
+        time.sleep(5)
+    return redirect(url_for('index'))
 
 @app.route("/acceuil")
 def acceuil():
-    return render_template("4.Page d'acceuil.html.mako")
+    if "user_id" not in session:
+        return redirect(url_for('index'))
+    else:
+        return render_template("4.Page d'acceuil.html.mako")
 
 @app.route("/profile")
 def profile():
     user = load_connected_user()
     if user is None:
-        return redirect(url_for("login"))
+        return redirect(url_for("index"))
     pseudo = user["pseudo"]
     user_id = user["id"]
     email = user["email"]
@@ -119,7 +118,10 @@ def profile():
 
 @app.route("/garage")
 def garage():
-    return render_template("5.RegarderUneVoiture.html.mako")
+    if "user_id" not in session:
+        return redirect(url_for('index'))
+    else:
+        return render_template("5.RegarderUneVoiture.html.mako")
 
 @app.route("/garagee")
 def garagee():
@@ -127,17 +129,24 @@ def garagee():
 
 @app.route("/comparatif")
 def comparatif():
-    return render_template("5.Comparatif.html.mako")
+    if "user_id" not in session:
+        return redirect(url_for('index'))
+    else:
+        return render_template("5.Comparatif.html.mako")
 
 @app.route("/contact")
 def contact():
-    return render_template("5.Contact.html.mako")
+    if "user_id" not in session:
+        return redirect(url_for('index'))
+    else:
+        return render_template("5.Contact.html.mako")
 
 @app.route("/ajout", methods=["GET", "POST"])
 def ajout():
+    if "user_id" not in session:
+        return redirect(url_for('index'))
     if request.method == "GET":
         return render_template("6.AjoutDeVoiture.html.mako", error=None)
-
     elif request.method == "POST":
         try:
             form = request.form

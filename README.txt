@@ -4,13 +4,7 @@ NEED4STATS, Elie Ducrey et Esteban Latrille
 
 Chose à faire :
 
-créer code qui contrôle qu'on est connecté pour accéder aux pages d'après login
-
-Rendre la page de contact plus belle
-
 Hash le password fonctionnel
-
-Créer que la fonction ajouter une voiture fonctionne : OK
 
 Mettre des voitures dans la base de données avec la fonction
 Template voiture garage avec la base de données fonctionnel
