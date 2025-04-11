@@ -94,10 +94,12 @@ def login():
 
 @app.route("/logout")
 def logout():
-    if "user_id" in session:
-        session.clear()
-        time.sleep(5)
-    return redirect(url_for('index'))
+    session.clear()
+    return redirect(url_for('mlog'))
+
+@app.route("/mlog")
+def mlog():
+    return render_template("3.Deconnection.html.mako")
 
 @app.route("/acceuil")
 def acceuil():
