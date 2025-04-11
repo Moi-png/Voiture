@@ -114,7 +114,6 @@ def profile():
     if user is None:
         return redirect(url_for("index"))
     pseudo = user["pseudo"]
-    user_id = user["id"]
     email = user["email"]
     return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
@@ -123,11 +122,9 @@ def garage():
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
-        return render_template("5.RegarderUneVoiture.html.mako")
+        x = random(1,max_id_car)
 
-@app.route("/garagee")
-def garagee():
-    return render_template("6.RegarderUneVoiture2.html.mako")
+        return render_template("5.RegarderUneVoiture.html.mako")
 
 @app.route("/comparatif")
 def comparatif():

@@ -8,39 +8,36 @@
     </head>
     <body>
         <h4>
-            <a class="Droite" href="${url_for('garagee')}"><img src="../static/7fdroit.png" alt="plage" width="80" height="80"></img></a>
-            <a class="Gauche" href="${url_for('garagee')}"><img src="../static/7fgauche.png" alt="plage" width="80" height="80"></img></a>
+            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="80" height="80"></img></a>
+            <a class="Gauche" href="${url_for('garage')}"><img src="../static/7fgauche.png" alt="plage" width="80" height="80"></img></a>
             <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
         </h4>
         <p class="center-voiture" class="Gauche">
-            Lamborghini Gallardo
-            <br>
-            <br>
-            Énergie : essence
+            ${voiture['nom']}
             <br><br>
-            Moteur : V10, 40 soupapes
+            Énergie : ${voiture['energie']}
             <br><br>
-            Position du moteur : Centrale arrière
+            Moteur : ${voiture['cylindre']} cylindres
             <br><br>
-            Puissance maximale : De 500 à 570 ch
+            Position du moteur : ${voiture['posmoteur']}
             <br><br>
-            Couple maximal : De 500 à 540 N m
+            Puissance maximale : ${voiture['pmax']} ch
             <br><br>
-            Transmission : intégrale
+            Couple maximal : ${voiture['mcouple']} N m
             <br><br>
-            Boîte de vitesse : Manuelle ou automatique 6 vitesses
+            Transmission : ${voiture['transmission']}
             <br><br>
-            Masse à vide : De 1330 à 1430 kg
+            Boîte de vitesse : ${voiture['boite']} vitesses
             <br><br>
-            Vitesse maximale : 315 km/h
+            Masse à vide : ${voiture['massevide']} kg
             <br><br>
-            Accélération de 0 à 100 km/h : 3,8 s
+            Vitesse maximale : ${voiture['vmax']} km/h
             <br><br>
-            Longueur : 4300 mm
+            Longueur : ${voiture['longueur']} mm
             <br><br>
-            Largeur	: 1900 mm
+            Largeur	: ${voiture['largeur']} mm
             <br><br>
-            Hauteur	: 1165 mm
+            Hauteur	: ${voiture['hauteur']} mm
         </p>
         <p class="ID">
             <img src="../static/7LamborghiniGallardo.jpg" alt="plage" width="" height="500"></img>

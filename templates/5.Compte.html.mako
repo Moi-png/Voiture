@@ -18,7 +18,6 @@
         <div class="center">
         <h1>Profil de ${pseudo}</h1>
         <ul>
-            <li>ID: ${user['id']}</li>
             <li>Pseudo: ${user['pseudo']}</li>
             <li>Email: ${user['email']}</li>
         </ul>
