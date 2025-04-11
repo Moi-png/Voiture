@@ -133,8 +133,43 @@ def comparatif():
 def contact():
     return render_template("5.Contact.html.mako")
 
-@app.route("/ajout")
+@app.route("/ajout", methods=["GET", "POST"])
 def ajout():
-    return render_template("6.AjoutDeVoiture.html.mako")
+    if request.method == "GET":
+        return render_template("6.AjoutDeVoiture.html.mako", error=None)
+
+    elif request.method == "POST":
+        try:
+            form = request.form
+            db = get_db()
+            db.execute("""
+                INSERT INTO voiture (
+                    signal, hauteur, largeur, longueur, nom, pmax, cylindre, mcouple,
+                    transmission, boite, moteur, posmoteur, energie, vmax, massevide,
+                    marque, lienimage
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                0,
+                form["hauteur"],
+                form["largeur"],
+                form["longueur"],
+                form["nom"],
+                form["pmax"],
+                form["cylindre"],
+                form["mcouple"],
+                form["transmission"],
+                form["boite"],
+                form["moteur"],
+                form["posmoteur"],
+                form["energie"],
+                form["vmax"],
+                form["massevide"],
+                form["marque"],
+                form["lienimage"]
+            ))
+            db.commit()
+            return redirect(url_for("garage"), code=303)
+        except Exception as e:
+            return render_template("6.AjoutDeVoiture.html.mako", error="Erreur : " + str(e))
 
 app.run(debug=True)

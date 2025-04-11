@@ -9,93 +9,71 @@
     <body>
         <a href="${url_for('garage')}"> Revenir au catalogue </a>
         <br>
-        <form>
-            <br>
+        <form method="POST" action="${url_for('ajout')}">
             <div class="form-example">
-                <label for="name"> URL d'une image de la voiture : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="lienimage">URL d'une image de la voiture :</label>
+                <input type="text" name="lienimage" id="lienimage" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Nom de la voiture : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="nom">Nom de la voiture :</label>
+                <input type="text" name="nom" id="nom" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Marque de la voiture : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="marque">Marque de la voiture :</label>
+                <input type="text" name="marque" id="marque" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Énergie : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="energie">Énergie :</label>
+                <input type="text" name="energie" id="energie" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Moteur : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="moteur">Moteur :</label>
+                <input type="text" name="moteur" id="moteur" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Position du moteur : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="posmoteur">Position du moteur :</label>
+                <input type="text" name="posmoteur" id="posmoteur" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Cylindrée : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="cylindre">Cylindrée :</label>
+                <input type="text" name="cylindre" id="cylindre" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Puissance maximale : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="pmax">Puissance maximale :</label>
+                <input type="text" name="pmax" id="pmax" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Couple maximal : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="mcouple">Couple maximal :</label>
+                <input type="text" name="mcouple" id="mcouple" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Transmission : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="transmission">Transmission :</label>
+                <input type="text" name="transmission" id="transmission" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Boîte de vitesse : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="boite">Boîte de vitesse :</label>
+                <input type="text" name="boite" id="boite" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Masse à vide : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="massevide">Masse à vide :</label>
+                <input type="text" name="massevide" id="massevide" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Vitesse maximale : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="vmax">Vitesse maximale :</label>
+                <input type="text" name="vmax" id="vmax" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Accélération de 0 à 100 km/h : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="longueur">Longueur :</label>
+                <input type="text" name="longueur" id="longueur" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Longueur : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="largeur">Largeur :</label>
+                <input type="text" name="largeur" id="largeur" required />
             </div>
-            <br>
             <div class="form-example">
-                <label for="name"> Largeur : </label>
-                <input type="text" name="name" id="name" required />
+                <label for="hauteur">Hauteur :</label>
+                <input type="text" name="hauteur" id="hauteur" required />
             </div>
-            <br>
-            <div class="form-example">
-                <label for="name"> Hauteur : </label>
-                <input type="text" name="name" id="name" required />
-            </div>
-            <br>
             <div class="form-example">
                 <input type="submit" value="Publier la voiture"/>
             </div>
