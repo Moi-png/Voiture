@@ -14,9 +14,7 @@
             </p>
             <br>
         </div>
-        % if error:
-            <p style="color: red;">${error}</p>
-        % endif
+
         <form method="POST" action="">
             <div class="form-example">
                 <label for="pseudo">Pseudo : </label>
@@ -27,10 +25,16 @@
                 <label for="pass">Mot de passe : </label>
                 <input type="password" id="pass" name="password" minlength="8" required />
             </div>
+            <div>
+        % if error:
+            <p style="color: red;">${error}</p>
+        % endif
+        </div>
             <br>
             <div class="form-example">
                 <input type="submit" value="Se connecter"/>
             </div>
         </form>
+
     </body>
 </html>
