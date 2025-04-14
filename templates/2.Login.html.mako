@@ -15,6 +15,7 @@
             <br>
         </div>
         % if error:
+        <br>
             <p style="color: red;">${error}</p>
         % endif
         <form method="POST" action="">
