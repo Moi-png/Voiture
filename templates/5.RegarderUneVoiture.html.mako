@@ -13,6 +13,8 @@
             <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
         </h4>
         <p class="center-voiture" class="Gauche">
+            Voiture numéro ${s}
+            <br><br>
             ${voiture['nom']}
             <br><br>
             Énergie : ${voiture['energie']}

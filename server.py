@@ -122,8 +122,9 @@ def garage():
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
-        x = random(1,max_id_car)
-
+        s = "SELECT count(*) FROM voiture"
+        x = randint(1,s)
+        "SELECT * FROM voitures WHERE id = x"
         return render_template("5.RegarderUneVoiture.html.mako")
 
 @app.route("/comparatif")
