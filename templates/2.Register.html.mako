@@ -34,14 +34,17 @@
                 <label for="pass">Confirmez le mot de passe : </label>
                 <input class="field" type="password" id="pass" name="confirm_password" minlength="8" +required />
             </div>
+            <div>
+            % if error is not None :
+            <p style="color: red">${error}</p>
+            % endif
+            </div>
             <br>
             <div class="form-example">
                 <input class="field" type="submit" value="S'inscrire"/>
             </div>
         </form>
-        % if error is not None :
-            <p style="color: red">ERREUR: ${error}</p>
-        % endif
+
     </body>
 </html>
 
