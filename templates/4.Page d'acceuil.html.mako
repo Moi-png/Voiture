@@ -8,7 +8,7 @@
     </head>
     <body>
         <h4>
-            <a class="Droite" href="${url_for('logout')}"> Déconnection </a>
+            <a class="Droite" href="${url_for('logout')}"> Déconnexion </a>
             <a class="Gauche" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
         </h4>
         <br>
