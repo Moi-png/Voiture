@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../static/style.css">
         <meta name="author" content="Moi-png, ELPHILA">
-        <title>Statistiques d'une voiture : Lamborghini Gallardo</title>
+        <title>Statistiques d'une voiture : ${voiture['nom']}</title>
     </head>
     <body>
         <h4>
@@ -12,42 +12,45 @@
             <a class="Gauche" href="${url_for('garage')}"><img src="../static/7fgauche.png" alt="plage" width="80" height="80"></img></a>
             <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
         </h4>
-        <p class="center-voiture" class="Gauche">
-            Voiture numéro ${s}
-            <br><br>
+        <p class="Gauche">
+            <br><br><br><br>
             ${voiture['nom']}
             <br><br>
             Énergie : ${voiture['energie']}
             <br><br>
             Moteur : ${voiture['cylindre']} cylindres
             <br><br>
-            Position du moteur : ${voiture['posmoteur']}
+            Position : ${voiture['posmoteur']}
             <br><br>
-            Puissance maximale : ${voiture['pmax']} ch
+            Puissance : ${voiture['pmax']} ch
             <br><br>
-            Couple maximal : ${voiture['mcouple']} N m
+            Couple : ${voiture['mcouple']} Nm
             <br><br>
             Transmission : ${voiture['transmission']}
             <br><br>
-            Boîte de vitesse : ${voiture['boite']} vitesses
+            Boîte : ${voiture['boite']} vitesses
             <br><br>
-            Masse à vide : ${voiture['massevide']} kg
+            Masse : ${voiture['massevide']} kg
             <br><br>
-            Vitesse maximale : ${voiture['vmax']} km/h
+            Vitesse : ${voiture['vmax']} km/h
             <br><br>
             Longueur : ${voiture['longueur']} mm
             <br><br>
-            Largeur	: ${voiture['largeur']} mm
+            Largeur : ${voiture['largeur']} mm
             <br><br>
-            Hauteur	: ${voiture['hauteur']} mm
+            Hauteur : ${voiture['hauteur']} mm
+            <br><br>
         </p>
         <p class="ID">
-            <img src="../static/7LamborghiniGallardo.jpg" alt="plage" width="" height="500"></img>
+            <img src="${voiture['lienimage']}" height="500">
         </p>
         <h5>
-            <img class ="downL" id="heartButton" src="../static/7likeV.png" alt="coeur blanc" width="100" height="100" onclick="this.src = this.src.includes('../static/7likeV.png') ? '../static/7likeP.png' : '../static/7likeV.png'"></img>
-            <a class ="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="100" height="100"></img></a>
-            <a class ="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="100" height=""></img></a>
+            <p class="downL">
+                <img id="heartButton" src="../static/7likeV.png" width="100" height="100"
+                onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
+            </p>
+            <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="100" height="100"></img></a>
+            <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="100" height=""></img></a>
         </h5>
     </body>
 </html>

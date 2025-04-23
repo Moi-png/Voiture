@@ -6,7 +6,7 @@ from flask import Flask, abort, url_for, request, redirect, session
 from datetime import datetime
 from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
-from random import randint
+from random import randint, choice
 from sqlite3 import *
 from functools import wraps
 
@@ -122,10 +122,17 @@ def garage():
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
-        s = "SELECT count(*) FROM voiture"
-        x = randint(1,s)
-        "SELECT * FROM voitures WHERE id = x"
-        return render_template("5.RegarderUneVoiture.html.mako")
+        db = get_db()
+        total = db.execute("SELECT COUNT(*) FROM voiture").fetchone()[0]
+        if total == 0:
+            return "Aucune voiture"
+        car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
+        vid = choice(car_ids)
+        voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
+        if not voiture:
+            return "Introuvable"
+        db.close()
+        return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, s=vid)
 
 @app.route("/comparatif")
 def comparatif():
@@ -153,11 +160,12 @@ def ajout():
             db = get_db()
             db.execute("""
                 INSERT INTO voiture (
-                    signal, hauteur, largeur, longueur, nom, pmax, cylindre, mcouple,
+                    signal, likes, hauteur, largeur, longueur, nom, pmax, cylindre, mcouple,
                     transmission, boite, moteur, posmoteur, energie, vmax, massevide,
                     marque, lienimage
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
+                0,
                 0,
                 form["hauteur"],
                 form["largeur"],
