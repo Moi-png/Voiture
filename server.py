@@ -6,7 +6,7 @@ from flask import Flask, abort, url_for, request, redirect, session
 from datetime import datetime
 from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
-from random import randint, choice
+from random import randint, choice, sample
 from sqlite3 import *
 from functools import wraps
 
@@ -139,7 +139,14 @@ def comparatif():
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
-        return render_template("5.Comparatif.html.mako")
+        db = get_db()
+        total = db.execute("SELECT COUNT(*) FROM voiture").fetchone()[0]
+        car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
+        vid1, vid2 = sample(car_ids, 2)
+        voiture1 = db.execute("SELECT * FROM voiture WHERE id = ?", (vid1,)).fetchone()
+        voiture2 = db.execute("SELECT * FROM voiture WHERE id = ?", (vid2,)).fetchone()
+        db.close()
+        return render_template("5.Comparatif.html.mako", voiture1=voiture1, voiture2=voiture2, s1=vid1, s2=vid2)
 
 @app.route("/contact")
 def contact():

@@ -97,6 +97,9 @@ h2{
     bottom:0;
 
 }
+.highlight {
+    text-decoration: underline;
+}
 .CL {
     color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
