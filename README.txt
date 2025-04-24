@@ -4,15 +4,18 @@ NEED4STATS, Elie Ducrey et Esteban Latrille
 
 Chose à faire :
 
-Hash le password fonctionnel
+Faire le compteur de like qui fonctionne
 
-Mettre des voitures dans la base de données avec la fonction
-Template voiture garage avec la base de données fonctionnel
-Faire le bouton de voiture unlike contre ce qui des bonnes donnés
+avoir les voitures liker dans notre page de profil
 
-Faire la page de comparatif template avec base de données fonctionnel, avec fonction qui souligne best stats
+Faire le compteur de signalement qui fonctionne
 
-Créer la page HTML de profil belle et fonctionnel
-Fonction like qui fonctionne et renvoie les voitures liker dans le profil
+rajouter des voitures dans le insert into pour en avoir beaucoup en tout
+
+Rendre le site entièrement beau avec le style
+
+Trier les images et les fichiers
+
+Trier la page CSS
 
 Faire le dossier README bien
