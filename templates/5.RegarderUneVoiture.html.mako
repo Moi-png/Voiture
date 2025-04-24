@@ -8,9 +8,10 @@
     </head>
     <body>
         <h4>
-            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="80" height="80"></img></a>
-            <a class="Gauche" href="${url_for('garage')}"><img src="../static/7fgauche.png" alt="plage" width="80" height="80"></img></a>
-            <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="80" height="80"></img></a>
+            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="50" height=""></img></a>
+            <img class="Gauche" id="signalButton" src="../static/7croixb.webp" width="50" height="50"
+            onclick="this.src=this.src.includes('7croixb')?'../static/7croixr.png':'../static/7croixb.webp'">
+            <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="50" height=""></img></a>
         </h4>
         <p class="Gauche">
             <br><br><br><br>
@@ -45,12 +46,10 @@
             <img src="${voiture['lienimage']}" height="500">
         </p>
         <h5>
-            <p class="downL">
-                <img id="heartButton" src="../static/7likeV.png" width="100" height="100"
-                onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
-            </p>
-            <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="100" height="100"></img></a>
-            <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="100" height=""></img></a>
+            <img class="downL" id="heartButton" src="../static/7likeV.png" width="50" height="50"
+            onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
+            <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="50" height="50"></img></a>
+            <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="80" height=""></img></a>
         </h5>
     </body>
 </html>

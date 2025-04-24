@@ -2,7 +2,7 @@ body{
     background-image: url('../static/7dbackground.jpg');
     background-size: cover;
     background-repeat: 100000;
-    color:  rgb(251, 85, 0)
+    color:  rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     text-align:center;
     background-color: black;
@@ -141,6 +141,16 @@ h2{
 .ID{
     position: fixed;
     right:0;
-    top:20%;
+    top:15%;
 
+}
+ul.profil .titre {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+ul.profil {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
 }
