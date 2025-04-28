@@ -5,6 +5,3 @@
 
 # Dossier contenant les fichiers compilés par l'interpréteur Python.
 __pycache__/
-
-# La base de données qui est générée par les fichiers .sql
-/data.db
