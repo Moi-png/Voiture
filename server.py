@@ -60,8 +60,8 @@ def register():
 
 @app.route("/welcome")
 def welcome():
-    if "user_id" in session:
-        return redirect(url_for('acceuil'))
+    if "user_id" not in session:
+        return redirect(url_for('index'))
     return render_template("3.WelcomeNewUser.html.mako")
 
 @app.route("/login", methods=["GET", "POST"])
