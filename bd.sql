@@ -27,7 +27,16 @@ create table voiture (
     marque text not null,
     lienimage text not null
 );
-
+create table likes (
+  id integer primary key,
+  user integer not null,
+  voiture integer not null
+);
+create table signal (
+  id integer primary key,
+  user integer not null,
+  voiture integer not null
+);
 INSERT INTO voiture (hauteur, largeur, longueur, nom, pmax, cylindre, mcouple, transmission, boite, moteur, posmoteur, energie, vmax, massevide, marque, lienimage) VALUES
 (1433, 1903, 4794, 'BMW M3 G80', 480, 6, 550, 4, 6, 1, 'avant', 'essence', 250, 1705, 'BMW', 'https://hips.hearstapps.com/hmg-prod/images/2025-bmw-m3-110-66562ddceaf59.jpg?crop=0.824xw:0.618xh;0.0737xw,0.274xh&resize=2048:*'),
 
