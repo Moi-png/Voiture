@@ -115,6 +115,8 @@ def profile():
 
 @app.route("/garage")
 def garage():
+    db=get_db()
+    db.execute("""INSERT INTO likes (user, voiture) VALUES ('?,?')""", ("user_id", ?))
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
@@ -163,13 +165,11 @@ def ajout():
             db = get_db()
             db.execute("""
                 INSERT INTO voiture (
-                    signal, likes, hauteur, largeur, longueur, nom, pmax, cylindre, mcouple,
+                    hauteur, largeur, longueur, nom, pmax, cylindre, mcouple,
                     transmission, boite, moteur, posmoteur, energie, vmax, massevide,
                     marque, lienimage
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
-                0,
-                0,
                 form["hauteur"],
                 form["largeur"],
                 form["longueur"],

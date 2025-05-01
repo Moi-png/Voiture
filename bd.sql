@@ -32,6 +32,7 @@ create table likes (
   user integer not null,
   voiture integer not null
 );
+
 create table signal (
   id integer primary key,
   user integer not null,

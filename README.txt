@@ -19,3 +19,5 @@ Trier les images et les fichiers
 Trier la page CSS
 
 Faire le dossier README bien
+
+Garage : mélanger la liste plutot que random à chaque fois
