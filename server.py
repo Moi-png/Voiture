@@ -113,12 +113,11 @@ def profile():
     email = user["email"]
     return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
-@app.route("/garage")
+@app.route("/garage/<car_ids>", methods=["GET", "POST"])
 def garage():
-
     if "user_id" not in session:
         return redirect(url_for('index'))
-    else:
+    elif request.method == "GET":
         db = get_db()
         total = db.execute("SELECT COUNT(*) FROM voiture").fetchone()[0]
         if total == 0:
@@ -128,14 +127,15 @@ def garage():
         voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
         if not voiture:
             return "Introuvable"
-#        if boutonlikes == True:
-#            db.execute("""INSERT INTO likes (user, voiture) VALUES ('?,?')""", ("user_id", "car_ids"))
- #           likes = True
-  #      if boutonsignal == True:
-   #         db.execute("""INSERT INTO signal (user, voiture) VALUES ('?,?')""", ("user_id", "car_ids"))
-    #        signal = True
         db.close()
         return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, s=vid)
+    elif request.method == "POST":
+        db = get_db()
+
+        db.execute("""INSERT INTO likes (user, voiture) VALUES ('?,?')""", ("user_id", car_ids))
+
+        db.commit()
+        return render_template("5.RegarderUneVoiture.html.mako")
 
 @app.route("/comparatif")
 def comparatif():

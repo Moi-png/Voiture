@@ -49,9 +49,10 @@
         </p>
         <h5>
 
-
-            <input type="image" class="downL" id="heartButton" src="../static/7likeV.png" width="50" height="50"
-            onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
+            <form method="POST">
+                <input type="image" name="likes" class="downL" id="heartButton" src="../static/7likeV.png" width="50" height="50">
+                ##onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
+            </form>
 
             <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="50" height="50"></a>
             <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="80" height=""></a>
