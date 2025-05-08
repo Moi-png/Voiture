@@ -21,3 +21,5 @@ Trier la page CSS
 Faire le dossier README bien
 
 Garage : mélanger la liste plutot que random à chaque fois
+
+V.08.05.25/14:43
