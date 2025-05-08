@@ -44,7 +44,6 @@
                 <input class="field" type="submit" value="S'inscrire"/>
             </div>
         </form>
-
     </body>
 </html>
 
