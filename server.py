@@ -128,10 +128,12 @@ def garage():
         voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
         if not voiture:
             return "Introuvable"
-        if boutonlikes == True:
-            db.execute("""INSERT INTO likes (user, voiture) VALUES ('?,?')""", ("user_id", "car_ids"))
-        if boutonsignal == True:
-            db.execute("""INSERT INTO signal (user, voiture) VALUES ('?,?')""", ("user_id", "car_ids"))
+#        if boutonlikes == True:
+#            db.execute("""INSERT INTO likes (user, voiture) VALUES ('?,?')""", ("user_id", "car_ids"))
+ #           likes = True
+  #      if boutonsignal == True:
+   #         db.execute("""INSERT INTO signal (user, voiture) VALUES ('?,?')""", ("user_id", "car_ids"))
+    #        signal = True
         db.close()
         return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, s=vid)
 
