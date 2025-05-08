@@ -35,6 +35,5 @@
                 <input type="submit" value="Se connecter"/>
             </div>
         </form>
-
     </body>
 </html>
