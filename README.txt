@@ -22,4 +22,6 @@ Faire le dossier README bien
 
 Garage : mélanger la liste plutot que random à chaque fois
 
+faire image avec truc avatar dans la fin du dossier
+
 V.08.05.25/14:43
