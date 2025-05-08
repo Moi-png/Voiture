@@ -4,4 +4,4 @@
 /.venv/
 
 # Dossier contenant les fichiers compilés par l'interpréteur Python.
-__pycache__/
+/__pycache__/
