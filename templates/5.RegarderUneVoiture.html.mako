@@ -8,12 +8,12 @@
     </head>
     <body>
         <h4>
-            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="50" height=""></img></a>
+            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="50" height="50"></a>
 
-            <input type="image" class="Gauche" id="signalButton" src="../static/7croixb.png" width="50" height="50"
+            <input type="image" class="HGauche" id="signalButton" src="../static/7croixb.png" width="50" height="50"
             onclick="this.src=this.src.includes('7croixb')?'../static/7croixr.png':'../static/7croixb.png'">
 
-            <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="50" height=""></img></a>
+            <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="50" height=""></a>
         </h4>
         <p class="Gauche">
             <br><br><br><br>
@@ -49,11 +49,12 @@
         </p>
         <h5>
 
+
             <input type="image" class="downL" id="heartButton" src="../static/7likeV.png" width="50" height="50"
             onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
 
-            <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="50" height="50"></img></a>
-            <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="80" height=""></img></a>
+            <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="50" height="50"></a>
+            <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="80" height=""></a>
         </h5>
     </body>
 </html>

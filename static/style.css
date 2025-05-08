@@ -52,6 +52,14 @@ h2{
     position: fixed;
     border: none;
 }
+.HGauche{
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    position: fixed;
+    left :0;
+    display: grid;
+    border: none;
+}
 .Droite{
     position: fixed;
     right: 0;
