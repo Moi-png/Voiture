@@ -50,6 +50,7 @@ h2{
     text-align: left;
     display: flex;
     position: fixed;
+    border: none;
 }
 .Droite{
     position: fixed;
@@ -88,6 +89,7 @@ h2{
     position:fixed;
     left:0;
     bottom:0;
+    border: none;
 
 }
 .highlight {
