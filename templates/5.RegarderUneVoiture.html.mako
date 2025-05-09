@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
-        <meta name="author" content="Moi-png, ELPHILA">
-        <title>Statistiques d'une voiture : ${voiture['nom']}</title>
-    </head>
-    <body>
-        <h4>
-            <a class="Droite" href="${url_for('garage')}"><img src="../static/7fdroit.png" alt="plage" width="50" height="50"></a>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <meta name="author" content="Moi-png, ELPHILA">
+    <title>Statistiques d'une voiture : ${voiture['nom']}</title>
+</head>
+<body>
+    <h4>
+        <a class="Droite" href="${url_for('garage', vid='random')}">
+            <img src="../static/7fdroit.png" alt="autre voiture" width="50" height="50" />
+        </a>
 
-            <input type="image" class="HGauche" id="signalButton" src="../static/7croixb.png" width="50" height="50"
-            onclick="this.src=this.src.includes('7croixb')?'../static/7croixr.png':'../static/7croixb.png'">
+        <form method="POST">
+            <input type="image" name ="signal" class="HGauche" id="signalButton"
+                    src="../static/7croixb.png" width="50" height="50" />
+        </form>
 
-            <a class="Centre" href="${url_for('profile')}"><img src="../static/7DefaultPhoto.jpg" alt="plage" width="50" height=""></a>
-        </h4>
-        <p class="Gauche">
+        <a class="Centre" href="${url_for('profile')}">
+            <img src="../static/7DefaultPhoto.jpg" alt="profil" width="50" />
+        </a>
+    </h4>
+    <p class="Gauche">
             <br><br><br><br>
             ${voiture['nom']}
             <br><br>
@@ -43,19 +49,24 @@
             <br><br>
             Hauteur : ${voiture['hauteur']} mm
             <br><br>
-        </p>
-        <p class="ID">
-            <img src="${voiture['lienimage']}" height="500">
-        </p>
-        <h5>
+    </p>
 
-            <form method="POST">
-                <input type="image" name="likes" class="downL" id="heartButton" src="../static/7likeV.png" width="50" height="50">
-                ##onclick="this.src=this.src.includes('7likeV')?'../static/7likeP.png':'../static/7likeV.png'">
-            </form>
+    <p class="ID">
+        <img src="${voiture['lienimage']}" height="500" />
+    </p>
 
-            <a class="downR" href="${url_for('ajout')}"><img src="../static/7+.png" alt="plage" width="50" height="50"></a>
-            <a class="downC" href="${url_for('acceuil')}"><img src="../static/7ACCEUIL.png" alt="plage" width="80" height=""></a>
-        </h5>
-    </body>
+    <h5>
+        <form method="POST">
+            <input type="image" name="likes" class="downL" id="heartButton"
+                   src="../static/7likeV.png" width="50" height="50" />
+        </form>
+
+        <a class="downR" href="${url_for('ajout')}">
+            <img src="../static/7+.png" alt="ajout" width="50" height="50" />
+        </a>
+        <a class="downC" href="${url_for('acceuil')}">
+            <img src="../static/7ACCEUIL.png" alt="accueil" width="80" />
+        </a>
+    </h5>
+</body>
 </html>

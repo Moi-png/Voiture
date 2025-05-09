@@ -15,6 +15,7 @@ app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
 MakoTemplates(app)
 SQLiteExtension(app)
 
+
 def load_connected_user():
     user_id = session.get("user_id")
     if user_id is not None:
@@ -113,29 +114,33 @@ def profile():
     email = user["email"]
     return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
 
-@app.route("/garage/<car_ids>", methods=["GET", "POST"])
-def garage():
+@app.route("/garage/<vid>", methods=["GET", "POST"])
+def garage(vid):
     if "user_id" not in session:
         return redirect(url_for('index'))
-    elif request.method == "GET":
-        db = get_db()
-        total = db.execute("SELECT COUNT(*) FROM voiture").fetchone()[0]
-        if total == 0:
-            return "Aucune voiture"
+    db = get_db()
+    if vid == "random":
         car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
+        if not car_ids:
+            db.close()
+            return "Aucune voiture"
         vid = choice(car_ids)
-        voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
-        if not voiture:
-            return "Introuvable"
+    voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
+    if not voiture:
         db.close()
-        return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, s=vid)
-    elif request.method == "POST":
-        db = get_db()
-
-        db.execute("""INSERT INTO likes (user, voiture) VALUES ('?,?')""", ("user_id", car_ids))
-
+        return "Voiture introuvable"
+    if request.method == "POST":
+        db.execute(
+            "INSERT INTO likes (user, voiture) VALUES (?, ?)",
+            (session["user_id"], vid)
+        )
+        db.execute(
+            "INSERT INTO signal (user, voiture) VALUES (?, ?)",
+            (session["user_id"], vid)
+        )
         db.commit()
-        return render_template("5.RegarderUneVoiture.html.mako")
+    db.close()
+    return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture)
 
 @app.route("/comparatif")
 def comparatif():
