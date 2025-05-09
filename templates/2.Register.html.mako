@@ -14,21 +14,31 @@
             </p>
             <br>
         </div>
-        <form method="POST" enctype="multipart/form-data">
-            <label for="pseudo">Pseudo :</label>
-            <input type="text" name="pseudo" required />
-
-            <label for="email">Email :</label>
-            <input type="email" name="email" required />
-
-            <label for="password">Mot de passe :</label>
-            <input type="password" name="password" required />
-
-            <label for="confirm_password">Confirmer :</label>
-            <input type="password" name="confirm_password" required />
-
-            <label for="photo">Photo de profil :</label>
-            <input type="file" name="photo" accept="image/*" />
+        <form method = "POST">
+            <div class="form-example">
+                <label for="pseudo">Pseudo : </label>
+                <input class="field" type="text" name="pseudo" id="pseudo" required />
+            </div>
+            <br>
+            <div class="form-example">
+                <label for="email">Email : </label>
+                <input class="field" type="email" name="email" id="email" required />
+            </div>
+            <br>
+            <div>
+                <label for="pass">Mot de passe (8 caractères minimum) : </label>
+                <input class="field" type="password" id="pass" name="password" minlength="8" +required />
+            </div>
+            <br>
+            <div>
+                <label for="pass">Confirmez le mot de passe : </label>
+                <input class="field" type="password" id="pass" name="confirm_password" minlength="8" +required />
+            </div>
+            <br>
+            <div>
+                <label for="photo">Photo de profil :</label>
+                <input class="field" type="file" name="photo" accept="image/*" />
+            </div>
             <div>
             % if error is not None :
             <p style="color: red">${error}</p>

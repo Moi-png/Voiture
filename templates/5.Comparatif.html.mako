@@ -57,7 +57,7 @@
                 ${voiture1['hauteur']} mm
             </span>
             <br><br>
-            <img src="${voiture1['lienimage']}" width="500" height="">
+            <img src="${voiture1['lienimage']}" height="250">
         </p>
         <p class="CL">
             <strong>${voiture2['nom']}</strong>
@@ -109,7 +109,7 @@
                 ${voiture2['hauteur']} mm
             </span>
             <br><br>
-            <img src="${voiture2['lienimage']}" width="500">
+            <img src="${voiture2['lienimage']}" height="250">
         </p>
         <a href="${url_for('acceuil')}"> Revenir a la page d'accueil </a>
         <a class="downC" href="${url_for('comparatif')}"><img src="../static/7vs.png" alt="plage" width="100" height=""></img></a>

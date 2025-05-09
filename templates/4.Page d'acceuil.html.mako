@@ -15,8 +15,8 @@
                         <img src="/${user['photo']}" alt="Photo de profil" width="50"/>
                     </div>
                 % else:
-                    <div class="center">
-                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="150" />
+                    <div class="HGauche">
+                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="50" />
                     </div>
                 % endif
         </a>

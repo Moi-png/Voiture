@@ -11,7 +11,6 @@
         <a class="Droite" href="${url_for('garage', vid='random')}">
             <img src="../static/7fdroit.png" alt="autre voiture" width="50" height="50" />
         </a>
-
         <form method="POST">
             <input type="hidden" name="action" value="signal" />
             <input type="image" class="HGauche" id="signalButton"
@@ -19,7 +18,6 @@
                 width="50" height="50" alt="Signalement" />
         </form>
         <p class="HHGauche">${signal_count}</p>
-
         <a class="Centre" href="${url_for('profile')}">
             <img src="../static/7DefaultPhoto.jpg" alt="profil" width="50" />
         </a>
