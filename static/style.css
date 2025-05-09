@@ -60,6 +60,14 @@ h2{
     left :0;
     border: none;
 }
+.HHGauche{
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    position: fixed;
+    padding: 0;
+    left :0;
+    border: none;
+}
 .Droite{
     position: fixed;
     right: 0;
@@ -92,6 +100,15 @@ h2{
 }
 
 .downL {
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    position:fixed;
+    left:0;
+    bottom:0;
+    border: none;
+
+}
+.downLL {
     color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
     position:fixed;

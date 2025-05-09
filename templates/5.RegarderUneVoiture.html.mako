@@ -13,9 +13,12 @@
         </a>
 
         <form method="POST">
-            <input type="image" name ="signal" class="HGauche" id="signalButton"
-                    src="../static/7croixb.png" width="50" height="50" />
+            <input type="hidden" name="action" value="signal" />
+            <input type="image" class="HGauche" id="signalButton"
+                src="../static/${'7croixr.png' if is_signaled else '7croixb.png'}"
+                width="50" height="50" alt="Signalement" />
         </form>
+        <p class="HHGauche">${signal_count}</p>
 
         <a class="Centre" href="${url_for('profile')}">
             <img src="../static/7DefaultPhoto.jpg" alt="profil" width="50" />
@@ -57,9 +60,14 @@
 
     <h5>
         <form method="POST">
-            <input type="image" name="likes" class="downL" id="heartButton"
-                   src="../static/7likeV.png" width="50" height="50" />
+            <input type="hidden" name="action" value="like" />
+            <input type="image" class="downL" id="heartButton"
+                src="../static/${'7likeP.png' if is_liked else '7likeV.png'}"
+                width="50" height="50" alt="Like" />
         </form>
+        <p class="downLL">${like_count}</p>
+
+
 
         <a class="downR" href="${url_for('ajout')}">
             <img src="../static/7+.png" alt="ajout" width="50" height="50" />

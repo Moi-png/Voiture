@@ -61,6 +61,8 @@ INSERT INTO voiture (hauteur, largeur, longueur, nom, pmax, cylindre, mcouple, t
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS voiture;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS signal;
 
 
 
