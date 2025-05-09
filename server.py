@@ -38,26 +38,44 @@ def index():
 def register():
     if "user_id" in session:
         return redirect(url_for('acceuil'))
+
     if request.method == "GET":
         return render_template("2.Register.html.mako", error=None)
-    elif request.method == "POST":
-        try:
-            if request.form["password"] != request.form["confirm_password"]:
-                raise ValidationError("Les mots de passe ne correspondent pas.")
-            db = get_db()
-            db.execute(
-                """
-                INSERT INTO users (pseudo, email, password)
-                VALUES (?,?,?);
-                """,
-                (request.form["pseudo"], request.form["email"], request.form["password"]))
-            db.commit()
-            user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-            session.clear()
-            session["user_id"] = user_id
-            return redirect("welcome", code=303)
-        except ValidationError as e:
-            return render_template("2.Register.html.mako", error=str(e))
+
+    try:
+        if request.form["password"] != request.form["confirm_password"]:
+            raise ValidationError("Les mots de passe ne correspondent pas.")
+
+        pseudo = request.form["pseudo"]
+        email = request.form["email"]
+        password = request.form["password"]
+
+        image = request.files.get("photo")
+        photo_path = None
+
+        if image and image.filename:
+            ext = image.filename.rsplit(".", 1)[-1].lower()
+            if ext in ("png", "jpg", "jpeg", "gif"):
+                filename = pseudo + "_" + image.filename.replace(" ", "_")
+                chemin = "static/uploads/" + filename
+                with open(chemin, "wb") as f:
+                    f.write(image.read())
+                photo_path = chemin
+
+        db = get_db()
+        db.execute(
+            "INSERT INTO users (pseudo, email, password, photo) VALUES (?, ?, ?, ?)",
+            (pseudo, email, password, photo_path)
+        )
+        db.commit()
+
+        user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+        session.clear()
+        session["user_id"] = user_id
+        return redirect(url_for("welcome"), code=303)
+
+    except ValidationError as e:
+        return render_template("2.Register.html.mako", error=str(e))
 
 @app.route("/welcome")
 def welcome():
@@ -100,19 +118,29 @@ def mlog():
 
 @app.route("/acceuil")
 def acceuil():
+    user = load_connected_user()
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
-        return render_template("4.Page d'acceuil.html.mako")
+        return render_template("4.Page d'acceuil.html.mako", user=user)
 
 @app.route("/profile")
 def profile():
     user = load_connected_user()
     if user is None:
         return redirect(url_for("index"))
-    pseudo = user["pseudo"]
-    email = user["email"]
-    return render_template("5.Compte.html.mako", pseudo=pseudo, user=user)
+    db = get_db()
+    liked_cars = db.execute(
+        """
+        SELECT voiture.id, voiture.nom
+        FROM voiture
+        JOIN likes ON voiture.id = likes.voiture
+        WHERE likes.user = ?
+        """,
+        (user["id"],)
+    ).fetchall()
+    db.close()
+    return render_template("5.Compte.html.mako", pseudo=user["pseudo"], user=user, liked_cars=liked_cars)
 
 @app.route("/garage/<vid>", methods=["GET", "POST"])
 def garage(vid):
@@ -122,14 +150,9 @@ def garage(vid):
     if vid == "random":
         car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
         db.close()
-        if not car_ids:
-            return "Aucune voiture"
         vid = choice(car_ids)
         return redirect(url_for("garage", vid=vid))
     voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
-    if not voiture:
-        db.close()
-        return "Voiture introuvable"
     user_id = session["user_id"]
     if request.method == "POST":
         action = request.form.get("action")

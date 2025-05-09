@@ -10,7 +10,15 @@
     <h4>
         <a class="Droite" href="${url_for('logout')}">Déconnexion</a>
         <a class="Gauche" href="${url_for('profile')}">
-            <img src="../static/7DefaultPhoto.jpg" alt="profil" width="80" height="80" />
+                % if user['photo']:
+                    <div class="HGauche">
+                        <img src="/${user['photo']}" alt="Photo de profil" width="50"/>
+                    </div>
+                % else:
+                    <div class="center">
+                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="150" />
+                    </div>
+                % endif
         </a>
     </h4>
     <br><br><br>
