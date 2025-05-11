@@ -19,7 +19,15 @@
         </form>
         <p class="HHGauche">${signal_count}</p>
         <a class="Centre" href="${url_for('profile')}">
-            <img src="../static/7DefaultPhoto.jpg" alt="profil" width="50" />
+                % if user['photo']:
+                    <div class="Centre">
+                        <img src="/${user['photo']}" alt="Photo de profil" width="50"/>
+                    </div>
+                % else:
+                    <div class="Centre">
+                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="50" />
+                    </div>
+                % endif
         </a>
     </h4>
     <p class="Gauche">
@@ -51,11 +59,9 @@
             Hauteur : ${voiture['hauteur']} mm
             <br><br>
     </p>
-
     <p class="ID">
-        <img src="${voiture['lienimage']}" height="500" />
+        <img src="/${voiture['lienimage']}" height="500" />
     </p>
-
     <h5>
         <form method="POST">
             <input type="hidden" name="action" value="like" />
@@ -64,9 +70,6 @@
                 width="50" height="50" alt="Like" />
         </form>
         <p class="downLL">${like_count}</p>
-
-
-
         <a class="downR" href="${url_for('ajout')}">
             <img src="../static/7+.png" alt="ajout" width="50" height="50" />
         </a>

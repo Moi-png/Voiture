@@ -41,41 +41,41 @@ def register():
 
     if request.method == "GET":
         return render_template("2.Register.html.mako", error=None)
+    if request.method == "POST":
+        try:
+            if request.form["password"] != request.form["confirm_password"]:
+                raise ValidationError("Les mots de passe ne correspondent pas.")
 
-    try:
-        if request.form["password"] != request.form["confirm_password"]:
-            raise ValidationError("Les mots de passe ne correspondent pas.")
+            pseudo = request.form["pseudo"]
+            email = request.form["email"]
+            password = request.form["password"]
 
-        pseudo = request.form["pseudo"]
-        email = request.form["email"]
-        password = request.form["password"]
+            image = request.files.get("photo")
+            photo_path = None
 
-        image = request.files.get("photo")
-        photo_path = None
+            if image and image.filename:
+                ext = image.filename.rsplit(".", 1)[-1].lower()
+                if ext in ("png", "jpg", "jpeg", "gif"):
+                    filename = pseudo + "_" + image.filename.replace(" ", "_")
+                    chemin = "static/uploads/" + filename
+                    with open(chemin, "wb") as f:
+                        f.write(image.read())
+                    photo_path = chemin
 
-        if image and image.filename:
-            ext = image.filename.rsplit(".", 1)[-1].lower()
-            if ext in ("png", "jpg", "jpeg", "gif"):
-                filename = pseudo + "_" + image.filename.replace(" ", "_")
-                chemin = "static/uploads/" + filename
-                with open(chemin, "wb") as f:
-                    f.write(image.read())
-                photo_path = chemin
+            db = get_db()
+            db.execute(
+                "INSERT INTO users (pseudo, email, password, photo) VALUES (?, ?, ?, ?)",
+                (pseudo, email, password, photo_path)
+            )
+            db.commit()
 
-        db = get_db()
-        db.execute(
-            "INSERT INTO users (pseudo, email, password, photo) VALUES (?, ?, ?, ?)",
-            (pseudo, email, password, photo_path)
-        )
-        db.commit()
+            user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            session.clear()
+            session["user_id"] = user_id
+            return redirect(url_for("welcome"), code=303)
 
-        user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-        session.clear()
-        session["user_id"] = user_id
-        return redirect(url_for("welcome"), code=303)
-
-    except ValidationError as e:
-        return render_template("2.Register.html.mako", error=str(e))
+        except ValidationError as e:
+            return render_template("2.Register.html.mako", error=str(e))
 
 @app.route("/welcome")
 def welcome():
@@ -146,6 +146,7 @@ def profile():
 def garage(vid):
     if "user_id" not in session:
         return redirect(url_for("index"))
+    user = load_connected_user()
     db = get_db()
     if vid == "random":
         car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
@@ -187,7 +188,7 @@ def garage(vid):
         "SELECT COUNT(*) FROM signal WHERE voiture = ?", (vid,)
     ).fetchone()[0]
     db.close()
-    return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, is_liked=is_liked, is_signaled=is_signaled, like_count=like_count, signal_count=signal_count)
+    return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, is_liked=is_liked, is_signaled=is_signaled, like_count=like_count, signal_count=signal_count, user=user)
 
 @app.route("/comparatif")
 def comparatif():
@@ -219,6 +220,13 @@ def ajout():
     elif request.method == "POST":
         try:
             form = request.form
+            photo = request.files["photo"]
+            if not photo or photo.filename == "":
+                return render_template("6.AjoutDeVoiture.html.mako", error="Veuillez ajouter une photo.")
+            filename = photo.filename.replace(" ", "_")
+            filepath = "static/uploads/" + filename
+            with open(filepath, "wb") as f:
+                f.write(photo.read())
             db = get_db()
             db.execute("""
                 INSERT INTO voiture (
@@ -242,7 +250,7 @@ def ajout():
                 form["vmax"],
                 form["massevide"],
                 form["marque"],
-                form["lienimage"]
+                filepath
             ))
             db.commit()
             return redirect(url_for("garage"), code=303)
