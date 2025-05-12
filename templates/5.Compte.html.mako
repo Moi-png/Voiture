@@ -22,7 +22,11 @@
                 <li>Profil de ${pseudo}</li>
                 <li><strong>Pseudo :</strong> ${user['pseudo']}</li>
                 <li><strong>Email :</strong> ${user['email']}</li>
-
+                <li>
+<!--                    <div>
+                        <label for="photo">Photo de profil :</label>
+                        <input class="field" type="file" name="photo" accept="image/*" />
+                    </div>-->
                 <li>Voitures likées :</li>
             % if liked_cars:
                     % for car in liked_cars:
