@@ -14,7 +14,7 @@
             </p>
             <br>
         </div>
-        <form method = "POST">
+        <form method = "POST" enctype="multipart/form-data">
             <div class="form-example">
                 <label for="pseudo">Pseudo : </label>
                 <input class="field" type="text" name="pseudo" id="pseudo" required />
@@ -41,7 +41,7 @@
             </div>
             <div>
             % if error is not None :
-            <p style="color: red">${error}</p>
+                <p style="color: red">${error}</p>
             % endif
             </div>
             <br>

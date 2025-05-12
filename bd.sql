@@ -4,10 +4,9 @@ create table users (
   id integer primary key,
   email text not null,
   pseudo text not null,
-  password text not null
+  password text not null,
+  photo text default null
 );
-
-ALTER TABLE users ADD COLUMN photo TEXT DEFAULT NULL;
 
 create table voiture (
     id integer primary key,
@@ -42,25 +41,43 @@ create table signal (
 );
 
 INSERT INTO voiture (hauteur, largeur, longueur, nom, pmax, cylindre, mcouple, transmission, boite, moteur, posmoteur, energie, vmax, massevide, marque, lienimage) VALUES
-(1433, 1903, 4794, 'BMW M3 G80', 480, 6, 550, 4, 6, 1, 'avant', 'essence', 250, 1705, 'BMW', 'https://hips.hearstapps.com/hmg-prod/images/2025-bmw-m3-110-66562ddceaf59.jpg?crop=0.824xw:0.618xh;0.0737xw,0.274xh&resize=2048:*'),
+(1136, 2030, 4780, 'Lamborghini Aventador', 770, 6498, 720, 4, 7, 12, 'centrale arrière', 'essence', 350, 1575, 'Lamborghini', 'static/uploads/aventador.jpg'),
 
-(1460, 1950, 4995, 'Audi RS6 Avant C8', 600, 8, 800, 4, 8, 1, 'avant', 'essence', 305, 2150, 'Audi', 'https://i0.wp.com/pdlv.fr/wp-content/uploads/2022/03/fiche-technique-audi-rs-6-2020.jpg?resize=780%2C470&ssl=1'),
+(1433, 1903, 4794, 'BMW M3 G80', 480, 6, 550, 4, 6, 1, 'avant', 'essence', 250, 1705, 'BMW', 'static/uploads/m3g80.jpg'),
 
-(1297, 1852, 4499, 'Porsche 911 Carrera (992)', 385, 6, 450, 4, 8, 1, 'arrière', 'essence', 293, 1505, 'Porsche', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Porsche_992_Carrera_S_coupe_IMG_5832.jpg'),
+(1460, 1950, 4995, 'Audi RS6 Avant C8', 600, 8, 800, 4, 8, 1, 'avant', 'essence', 305, 2150, 'Audi', 'static/uploads/rs6.jpg'),
 
-(1213, 1952, 4568, 'Ferrari 488 GTB', 670, 8, 760, 4, 7, 1, 'centrale', 'essence', 330, 1370, 'Ferrari', 'https://www.largus.fr/images/photos/rsi/_G_JPG/Voitures/FERRARI/488_GTB/I/Ph1/Coupe_2_portes/TROISQUARTAVANT1.jpg'),
+(1297, 1852, 4499, 'Porsche 911 Carrera (992)', 385, 6, 450, 4, 8, 1, 'arrière', 'essence', 293, 1505, 'Porsche', 'static/uploads/911carrera.jpg'),
 
-(1196, 1930, 4544, 'McLaren 720S', 720, 8, 770, 4, 7, 1, 'centrale', 'essence', 341, 1283, 'McLaren', 'https://upload.wikimedia.org/wikipedia/commons/4/43/McLaren_720S_IMG_0933.jpg'),
+(1196, 1930, 4544, 'McLaren 720S', 720, 8, 770, 4, 7, 1, 'centrale', 'essence', 341, 1283, 'McLaren', 'static/uploads/mclaren.jpg'),
 
-(1284, 1940, 4569, 'Mercedes-AMG GT S', 510, 8, 650, 4, 7, 1, 'avant', 'essence', 310, 1645, 'Mercedes-Benz', 'https://groupe-leuba.ch/wp-content/uploads/2024/02/meredes-amg-gt-coupe-9.jpg'),
+(1284, 1940, 4569, 'Mercedes-AMG GT S', 510, 8, 650, 4, 7, 1, 'avant', 'essence', 310, 1645, 'Mercedes-Benz', 'static/uploads/amg.jpg'),
 
-(1379, 1895, 4694, 'Nissan GT-R R35', 570, 6, 637, 4, 6, 1, 'avant', 'essence', 315, 1740, 'Nissan', 'https://www-europe.nissan-cdn.net/content/dam/Nissan/fr/vehicles/GT-R%202016/refonte-2023/header.jpg'),
+(1379, 1895, 4694, 'Nissan GT-R R35', 570, 6, 637, 4, 6, 1, 'avant', 'essence', 315, 1740, 'Nissan', 'static/uploads/nissan.jpg'),
 
-(1234, 1934, 4630, 'Chevrolet Corvette C8', 502, 8, 637, 4, 8, 1, 'centrale', 'essence', 312, 1530, 'Chevrolet', 'https://www.autosprint.ch/wp-content/uploads/2024/07/Chevrolet-Corvette-ZR1_6_autosprint.ch_.jpg'),
+(1234, 1934, 4630, 'Chevrolet Corvette C8', 502, 8, 637, 4, 8, 1, 'centrale', 'essence', 312, 1530, 'Chevrolet', 'static/uploads/corvette.jpg'),
 
-(1381, 1916, 4784, 'Ford Mustang GT', 450, 8, 529, 4, 6, 1, 'avant', 'essence', 250, 1680, 'Ford', 'https://media.ed.edmunds-media.com/ford/mustang/2025/oem/2025_ford_mustang_coupe_dark-horse_fq_oem_1_1600.jpg'),
+(1381, 1916, 4784, 'Ford Mustang GT', 450, 8, 529, 4, 6, 1, 'avant', 'essence', 250, 1680, 'Ford', 'static/uploads/mustang.jpg'),
 
-(1294, 1854, 4380, 'Toyota GR Supra (A90)', 340, 6, 500, 4, 8, 1, 'avant', 'essence', 250, 1495, 'Toyota', 'https://upload.wikimedia.org/wikipedia/commons/0/06/Toyota_Supra_GR_Genf_2019_1Y7A5645.jpg');
+(1294, 1854, 4380, 'Toyota GR Supra (A90)', 340, 6, 500, 4, 8, 1, 'avant', 'essence', 250, 1495, 'Toyota', 'static/uploads/toyota.jpg'),
+
+(1445, 1964, 4710, 'Audi RS6 Avant', 600, 3996, 800, 4, 8, 8, 'avant', 'essence', 305, 2075, 'Audi', 'static/uploads/rs66.jpg'),
+
+(1381, 1992, 4689, 'BMW M4', 510, 2993, 650, 3, 6, 6, 'avant', 'essence', 290, 1725, 'BMW', 'static/uploads/m4.jpg'),
+
+(1411, 1850, 4570, 'Alfa Romeo Giulia Quadrifoglio', 510, 2891, 600, 3, 6, 6, 'avant', 'essence', 307, 1580, 'Alfa Romeo', 'static/uploads/giulia.jpg'),
+
+(1296, 1877, 4379, 'Porsche 911 Turbo S', 650, 3745, 800, 4, 8, 6, 'arrière', 'essence', 330, 1640, 'Porsche', 'static/uploads/911.jpg'),
+
+(1457, 1845, 4665, 'Mercedes-AMG C63 S', 510, 3982, 700, 3, 9, 8, 'avant', 'essence', 290, 1710, 'Mercedes-Benz', 'static/uploads/c63.jpg'),
+
+(1280, 1800, 4390, 'Ferrari 488 GTB', 670, 3902, 760, 3, 7, 8, 'centrale arrière', 'essence', 330, 1475, 'Ferrari', 'static/uploads/ferrari488.jpg'),
+
+(1450, 1830, 4710, 'Tesla Model S Plaid', 1020, 0, 1420, 4, 1, 0, 'avant', 'électrique', 322, 2162, 'Tesla', 'static/uploads/tesla.jpg'),
+
+(1461, 1801, 4799, 'Peugeot 508 PSE', 360, 1598, 520, 4, 8, 4, 'avant', 'hybride', 250, 1850, 'Peugeot', 'static/uploads/peugeot.jpg'),
+
+(1205, 1871, 4411, 'Toyota GR Supra', 340, 2998, 500, 3, 8, 6, 'avant', 'essence', 250, 1495, 'Toyota', 'static/uploads/supra.jpg');
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS voiture;

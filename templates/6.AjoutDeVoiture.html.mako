@@ -7,13 +7,13 @@
         <title>Ajouter une voiture</title>
     </head>
     <body>
-        <a href="${url_for('garage')}"> Revenir au catalogue </a>
+        <a href="${url_for('garage', vid='random')}"> Revenir au catalogue </a>
         <br>
-        <form method="POST" action="${url_for('ajout')}">
+        <form method="POST" action="${url_for('ajout')}" enctype="multipart/form-data">
             <br><br>
             <div class="form-example">
-                <label for="lienimage">URL d'une image de la voiture :</label>
-                <input type="text" name="lienimage" id="lienimage" required />
+                <label for="photo">Image de la voiture :</label>
+                <input class="field" type="file" name="photo" accept="image/*" id="lienimage" />
             </div>
             <br><br>
             <div class="form-example">
