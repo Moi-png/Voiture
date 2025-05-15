@@ -148,12 +148,16 @@ def garage(vid):
         return redirect(url_for("index"))
     user = load_connected_user()
     db = get_db()
-    if vid == "random":
-        car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
-        db.close()
-        vid = choice(car_ids)
-        return redirect(url_for("garage", vid=vid))
-    voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
+    ##cursor = db.execute("SELECT nom FROM voiture ORDER BY random()")
+    ##randomid=cursor.fetchone()
+    ##if vid == "random":
+      ##  cursor.fetchone()
+    ##if vid == "random":
+    ##    car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
+  ##      db.close()
+##        vid = choice(car_ids)
+        ##return render_template("5.RegarderUneVoiture.html.mako",randomid=randomid)
+    voiture = db.execute("SELECT * FROM voiture ORDER BY random() ").fetchone()
     user_id = session["user_id"]
     if request.method == "POST":
         action = request.form.get("action")
