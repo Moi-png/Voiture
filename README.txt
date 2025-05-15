@@ -23,3 +23,11 @@ Rendre le site entièrement beau avec le style
 Faire débugger le garage pour que ça fonctionne
 
 mettre flèche qui fait revenir en arrière
+
+changer tout les liens de truc de ../static et du genre par des url_for
+
+faire powerpoint
+
+contrôler dossier de consigne
+
+Faire le word avec tableau de qui a fait quoi
