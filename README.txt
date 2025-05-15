@@ -31,3 +31,5 @@ faire powerpoint
 contrôler dossier de consigne
 
 Faire le word avec tableau de qui a fait quoi
+
+refaire dossier de présentation avec les deux plans refait (plan relationnel et plan des pages html)
