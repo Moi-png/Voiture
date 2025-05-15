@@ -142,6 +142,50 @@ def profile():
     db.close()
     return render_template("5.Compte.html.mako", pseudo=user["pseudo"], user=user, liked_cars=liked_cars)
 
+@app.route("/comptec", methods=["GET", "POST"])
+def comptec():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    user_id = session['user_id']
+    db = get_db()
+    if request.method == "POST":
+        pseudo = request.form['pseudo']
+        email = request.form['email']
+        password = request.form['password']
+        photo_file = request.files['photo']
+        photo_path = None
+        if photo_file and photo_file.filename != '':
+            filename = photo_file.filename
+            photo_path = os.path.join("static/uploads", filename)
+            photo_file.save(photo_path)
+        if password.strip():
+            if photo_path:
+                db.execute("""
+                    UPDATE users SET pseudo=?, email=?, password=?, photo=?
+                    WHERE id=?
+                """, (pseudo, email, password, photo_path, user_id))
+            else:
+                db.execute("""
+                    UPDATE users SET pseudo=?, email=?, password=?
+                    WHERE id=?
+                """, (pseudo, email, password, user_id))
+        else:
+            if photo_path:
+                db.execute("""
+                    UPDATE users SET pseudo=?, email=?, photo=?
+                    WHERE id=?
+                """, (pseudo, email, photo_path, user_id))
+            else:
+                db.execute("""
+                    UPDATE users SET pseudo=?, email=?
+                    WHERE id=?
+                """, (pseudo, email, user_id))
+        db.commit()
+        return redirect(url_for('profile'))
+    user = db.execute("SELECT * FROM users WHERE id=?", (user_id,)).fetchone()
+    return render_template("modifier_compte.html.mako", user=user)
+
+
 @app.route("/garage/<vid>", methods=["GET", "POST"])
 def garage(vid):
     if "user_id" not in session:

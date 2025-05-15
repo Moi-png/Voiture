@@ -11,12 +11,12 @@
 
     <div class="center">
         <h2>Modifier votre compte</h2>
-        <form action="{{ url_for('comptec') }}" method="POST" enctype="multipart/form-data">
+        <form action="${url_for('comptec')}" method="POST" enctype="multipart/form-data">
             <label for="pseudo">Nouveau pseudo :</label>
-            <input type="text" name="pseudo" value="{{ user['pseudo'] }}" required><br>
+            <input type="text" name="pseudo" value="${user['pseudo']}" required><br>
 
             <label for="email">Nouvel email :</label>
-            <input type="email" name="email" value="{{ user['email'] }}" required><br>
+            <input type="email" name="email" value="${user['email']}" required><br>
 
             <label for="password">Nouveau mot de passe :</label>
             <input type="password" name="password"><br>
