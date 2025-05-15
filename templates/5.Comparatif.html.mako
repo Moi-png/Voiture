@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link rel="stylesheet" type="text/css" href="${url_for('static', filename='style.css')}">
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Comparateur de voitures</title>
     </head>
     <body>
-        <p class="CR">
+        <p class="CL">
             <strong>${voiture1['nom']}</strong>
             <br><br>
             Énergie : ${voiture1['energie']}
@@ -57,9 +57,9 @@
                 ${voiture1['hauteur']} mm
             </span>
             <br><br>
-            <img src="${voiture1['lienimage']}" height="250">
+            <img src="/${voiture1['lienimage']}" height="250">
         </p>
-        <p class="CL">
+        <p class="CR">
             <strong>${voiture2['nom']}</strong>
             <br><br>
             Énergie : ${voiture2['energie']}
@@ -109,9 +109,11 @@
                 ${voiture2['hauteur']} mm
             </span>
             <br><br>
-            <img src="${voiture2['lienimage']}" height="250">
+            <img src="/${voiture2['lienimage']}" height="250">
         </p>
-        <a href="${url_for('acceuil')}"> Revenir a la page d'accueil </a>
-        <a class="downC" href="${url_for('comparatif')}"><img src="../static/7vs.png" alt="plage" width="100" height=""></img></a>
+        <a class="downC" href="${url_for('acceuil')}">
+            <img src="${url_for('static', filename='7ACCEUIL.png')}" alt="accueil" width="80" />
+        </a>
+        <a class="downCC" href="${url_for('comparatif')}"><img src="${url_for('static', filename='7vs.png')}" alt="plage" width="100" height=""></a>
     </body>
 </html>
