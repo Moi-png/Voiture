@@ -150,14 +150,16 @@ def garage(vid):
     db = get_db()
     ##cursor = db.execute("SELECT nom FROM voiture ORDER BY random()")
     ##randomid=cursor.fetchone()
-    ##if vid == "random":
-      ##  cursor.fetchone()
+    if vid == "random":
+        voiture = db.execute("SELECT * FROM voiture ORDER BY random() ").fetchone()
+        vid = voiture['id']
+    ##voiture = db.execute("SELECT * FROM voiture ORDER BY random() ").fetchone()
     ##if vid == "random":
     ##    car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
   ##      db.close()
 ##        vid = choice(car_ids)
-        ##return render_template("5.RegarderUneVoiture.html.mako",randomid=randomid)
-    voiture = db.execute("SELECT * FROM voiture ORDER BY random() ").fetchone()
+        return render_template("5.RegarderUneVoiture.html.mako",voiture=voiture)
+
     user_id = session["user_id"]
     if request.method == "POST":
         action = request.form.get("action")
@@ -179,9 +181,7 @@ def garage(vid):
                 db.execute("DELETE FROM signal WHERE user = ? AND voiture = ?", (user_id, vid))
         db.commit()
         return redirect(url_for("garage", vid=vid))
-    is_liked = db.execute(
-        "SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)
-    ).fetchone() is not None
+    is_liked = db.execute("SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone() is not None
     is_signaled = db.execute(
         "SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)
     ).fetchone() is not None
