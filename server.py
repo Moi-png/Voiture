@@ -190,19 +190,28 @@ def garage(vid):
     db.close()
     return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, is_liked=is_liked, is_signaled=is_signaled, like_count=like_count, signal_count=signal_count, user=user)
 
-@app.route("/comparatif")
+@app.route("/comparatif", methods=["GET", "POST"])
 def comparatif():
     if "user_id" not in session:
         return redirect(url_for('index'))
-    else:
-        db = get_db()
-        total = db.execute("SELECT COUNT(*) FROM voiture").fetchone()[0]
-        car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
-        vid1, vid2 = sample(car_ids, 2)
-        voiture1 = db.execute("SELECT * FROM voiture WHERE id = ?", (vid1,)).fetchone()
-        voiture2 = db.execute("SELECT * FROM voiture WHERE id = ?", (vid2,)).fetchone()
-        db.close()
-        return render_template("5.Comparatif.html.mako", voiture1=voiture1, voiture2=voiture2, s1=vid1, s2=vid2)
+    db = get_db()
+    voitures = db.execute("SELECT id, nom FROM voiture").fetchall()
+    db.close()
+    if request.method == "POST":
+        vid1 = request.form.get("voiture_gauche")
+        vid2 = request.form.get("voiture_droite")
+        return redirect(url_for("comparatiff", s1=vid1, s2=vid2))
+    return render_template("5.choice.html.mako", voitures=voitures)
+
+@app.route("/comparatif/<s1>/<s2>")
+def comparatiff(s1, s2):
+    if "user_id" not in session:
+        return redirect(url_for('index'))
+    db = get_db()
+    voiture1 = db.execute("SELECT * FROM voiture WHERE id = ?", (s1,)).fetchone()
+    voiture2 = db.execute("SELECT * FROM voiture WHERE id = ?", (s2,)).fetchone()
+    db.close()
+    return render_template("5.Comparatif.html.mako", voiture1=voiture1, voiture2=voiture2)
 
 @app.route("/contact")
 def contact():
