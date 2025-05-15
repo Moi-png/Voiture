@@ -6,11 +6,10 @@
     <title>Modifier votre compte</title>
 </head>
 <body>
-    <a class="Gauche" href="{{ url_for('acceuil') }}">Revenir à la page d'accueil</a>
-    <a class="Droite" href="{{ url_for('garage', vid='random') }}">Retour au catalogue</a>
+    <a class="Gauche" href="${url_for('acceuil')}">Revenir à la page d'accueil</a>
+    <a class="Droite" href="${url_for('profile')}">Retour au profil</a>
 
     <div class="center">
-        <h2>Modifier votre compte</h2>
         <form action="${url_for('comptec')}" method="POST" enctype="multipart/form-data">
             <label for="pseudo">Nouveau pseudo :</label>
             <input type="text" name="pseudo" value="${user['pseudo']}" required><br>
