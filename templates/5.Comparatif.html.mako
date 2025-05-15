@@ -7,7 +7,7 @@
         <title>Comparateur de voitures</title>
     </head>
     <body>
-        <p class="CR">
+        <p class="CL">
             <strong>${voiture1['nom']}</strong>
             <br><br>
             Énergie : ${voiture1['energie']}
@@ -59,7 +59,7 @@
             <br><br>
             <img src="/${voiture1['lienimage']}" height="250">
         </p>
-        <p class="CL">
+        <p class="CR">
             <strong>${voiture2['nom']}</strong>
             <br><br>
             Énergie : ${voiture2['energie']}
