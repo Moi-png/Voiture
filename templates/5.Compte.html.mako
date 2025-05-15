@@ -34,6 +34,6 @@
                     % endfor
             % endif
         </div>
-        <a class="downC" href="${url_for('comptec')}">Modifier le compte</a>
+        <a class="downC" href="${url_for('comptec')}">Modifier</a>
     </body>
 </html>
