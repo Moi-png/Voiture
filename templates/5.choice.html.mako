@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Choix de voitures</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" type="text/css" href="${url_for('static', filename='style.css')}">
 </head>
 <body>
     <h2>Choisissez deux voitures à comparer :</h2>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link rel="stylesheet" type="text/css" href="${url_for('static', filename='style.css')}">
         <meta name="author" content="Moi-png, ELPHILA">
         <title>Votre compte</title>
     </head>
