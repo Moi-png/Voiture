@@ -14,7 +14,7 @@ liker la mettra dans votre compte et vous pourrez aller voir vos voitures likée
 vous voulez. Le but de ce site est de réunir des fans de voitures qui veulent présenter des
 voitures peu connues.
 
-aller dans serveur.py, lancer le python et c'est tout bon
+aller dans server.py, lancer le python et c'est tout bon
 
 Chose à faire :
 
