@@ -20,7 +20,7 @@
     </form>
     <br>
     <a class="downC" href="${url_for('acceuil')}">
-        <img src="../static/7ACCEUIL.png" alt="accueil" width="80" />
+        <img src="${url_for('static', filename='7ACCEUIL.png')}" alt="accueil" width="80" />
     </a>
 </body>
 </html>

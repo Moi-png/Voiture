@@ -10,19 +10,25 @@
     <h4>
         % if prev_id:
         <a class="Droitee" href="${url_for('garage', vid=prev_id, ordre=ordre_str)}">
-            <img src="../static/7fgauche.png" width="50" alt="Voiture précédente" />
+            <img src="${url_for('static', filename='7fgauche.png')}" width="50" alt="Voiture précédente" />
         </a>
         % endif
         % if next_id:
         <a class="Droite" href="${url_for('garage', vid=next_id, ordre=ordre_str)}">
-            <img src="../static/7fdroit.png" width="50" alt="Voiture suivante" />
+            <img src="${url_for('static', filename='7fdroit.png')}" width="50" alt="Voiture suivante" />
         </a>
         % endif
         <form method="POST">
             <input type="hidden" name="action" value="signal" />
+            % if is_signaled:
             <input type="image" class="HGauche" id="signalButton"
-                src="../static/${'7croixr.png' if is_signaled else '7croixb.png'}"
+                src="${url_for('static', filename='7croixr.png')}"
                 width="50" height="50" alt="Signalement" />
+            % else :
+            <input type="image" class="HGauche" id="signalButton"
+                src="${url_for('static', filename='7croixb.png')}"
+                width="50" height="50" alt="Signalement" />
+            % endif
         </form>
         <p class="HHGauche">${signal_count}</p>
         <a class="Centre" href="${url_for('profile')}">
@@ -32,7 +38,7 @@
                     </div>
                 % else:
                     <div class="Centre">
-                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="50" />
+                        <img src="${url_for('static', filename='7DefaultPhoto.jpg')}" alt="Photo de profil par défaut" width="50" />
                     </div>
                 % endif
         </a>
@@ -43,7 +49,7 @@
             <br><br>
             Énergie : ${voiture['energie']}
             <br><br>
-            Moteur : ${voiture['cylindre']} cylindres
+            Moteur : ${voiture['moteur']} cylindres
             <br><br>
             Position : ${voiture['posmoteur']}
             <br><br>
@@ -72,16 +78,22 @@
     <h5>
         <form method="POST">
             <input type="hidden" name="action" value="like" />
+            % if is_liked:
             <input type="image" class="downL" id="heartButton"
-                src="../static/${'7likeP.png' if is_liked else '7likeV.png'}"
+                src="${url_for('static', filename='7likeP.png')}"
                 width="50" height="50" alt="Like" />
+            % else :
+            <input type="image" class="downL" id="heartButton"
+                src="${url_for('static', filename='7likeV.png')}"
+                width="50" height="50" alt="Like" />
+            % endif
         </form>
         <p class="downLL">${like_count}</p>
         <a class="downR" href="${url_for('ajout')}">
-            <img src="../static/7+.png" alt="ajout" width="50" height="50" />
+            <img src="${url_for('static', filename='7+.png')}" alt="ajout" width="50" height="50" />
         </a>
         <a class="downC" href="${url_for('acceuil')}">
-            <img src="../static/7ACCEUIL.png" alt="accueil" width="80" />
+            <img src="${url_for('static', filename='7ACCEUIL.png')}" alt="accueil" width="80" />
         </a>
     </h5>
 </body>

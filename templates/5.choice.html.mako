@@ -8,7 +8,7 @@
 <body>
     <h2>Choisissez deux voitures à comparer :</h2>
     <form method="POST" action="${url_for('comparatif')}" >
-        <div class="CR">
+        <div class="CL">
             <label for="voiture_gauche">Voiture de gauche :</label><br>
             <select name="voiture_gauche" required>
                 % for v in voitures:
@@ -16,7 +16,7 @@
                 % endfor
             </select>
         </div>
-        <div class="CL">
+        <div class="CR">
             <label for="voiture_droite">Voiture de droite :</label><br>
             <select name="voiture_droite" required>
                 % for v in voitures:
@@ -29,7 +29,7 @@
     </form>
     <br>
     <a class="downC" href="${url_for('acceuil')}">
-        <img src="../static/7ACCEUIL.png" alt="accueil" width="80" />
+        <img src="${url_for('static', filename='7ACCEUIL.png')}" alt="accueil" width="80" />
     </a>
 </body>
 </html>

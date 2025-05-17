@@ -15,7 +15,7 @@
                     </div>
                 % else:
                     <div class="top">
-                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="100" />
+                        <img src="${url_for('static', filename='7DefaultPhoto.jpg')}" alt="Photo de profil par défaut" width="100" />
                     </div>
                 % endif
             <ul>

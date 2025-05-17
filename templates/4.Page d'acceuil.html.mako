@@ -16,23 +16,23 @@
                     </div>
                 % else:
                     <div class="HGauche">
-                        <img src="../static/7DefaultPhoto.jpg" alt="Photo de profil par défaut" width="50" />
+                        <img src="${url_for('static', filename='7DefaultPhoto.jpg')}" alt="Photo de profil par défaut" width="50" />
                     </div>
                 % endif
         </a>
     </h4>
     <br><br><br>
     <a href="${url_for('comparatif')}">
-        <img src="../static/7vs.png" alt="comparatif" width="280" height="180" />
+        <img src="${url_for('static', filename='7vs.png')}" alt="comparatif" width="280" height="180" />
     </a>
     <br><br><br>
     <a href="${url_for('garage', vid='random')}">
-        <img src="../static/7garage.png" alt="garage" width="280" height="210" />
+        <img src="${url_for('static', filename='7garage.png')}" alt="garage" width="280" height="210" />
     </a>
     <br><br><br><br>
     <a href="${url_for('contact')}">
-        <img src="../static/7phone.png" alt="téléphone" width="80" height="80" />
-        <img src="../static/7mail.png" alt="email" width="75" height="75" />
+        <img src="${url_for('static', filename='7phone.png')}" alt="téléphone" width="80" height="80" />
+        <img src="${url_for('static', filename='7mail.png')}" alt="email" width="75" height="75" />
     </a>
 </body>
 </html>

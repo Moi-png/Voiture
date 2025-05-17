@@ -14,7 +14,7 @@
             <br><br>
             Moteur :
             <span class="${'highlight' if int(voiture1['cylindre']) > int(voiture2['cylindre']) else ''}">
-                ${voiture1['cylindre']} cylindres
+                ${voiture1['moteur']} cylindres
             </span>
             <br><br>
             Puissance :
@@ -66,7 +66,7 @@
             <br><br>
             Moteur :
             <span class="${'highlight' if int(voiture2['cylindre']) > int(voiture1['cylindre']) else ''}">
-                ${voiture2['cylindre']} cylindres
+                ${voiture2['moteur']} cylindres
             </span>
             <br><br>
             Puissance :

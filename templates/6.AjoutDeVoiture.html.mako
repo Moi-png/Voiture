@@ -32,18 +32,13 @@
             </div>
             <br><br>
             <div class="form-example">
-                <label for="moteur">Moteur :</label>
+                <label for="moteur">Nombre de cylindres :</label>
                 <input type="text" name="moteur" id="moteur" required />
             </div>
             <br><br>
             <div class="form-example">
                 <label for="posmoteur">Position du moteur :</label>
                 <input type="text" name="posmoteur" id="posmoteur" required />
-            </div>
-            <br><br>
-            <div class="form-example">
-                <label for="cylindre">Cylindrée :</label>
-                <input type="text" name="cylindre" id="cylindre" required />
             </div>
             <br><br>
             <div class="form-example">

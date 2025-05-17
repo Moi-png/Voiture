@@ -28,6 +28,18 @@ input{
     color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
 }
+button{
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(251, 85, 0);
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+}
+select{
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(251, 85, 0);
+    color: rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+}
 ul {
     color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
@@ -118,11 +130,12 @@ h2{
     display: flex;
     justify-content: center;
 }
+
 .centerrr {
     position: fixed;
     right: 50%;
     left:50%;
-    top:50%;
+    top:48%;
     text-align: center;
     display: flex;
     justify-content: center;
