@@ -8,7 +8,7 @@
     </head>
     <style>
         body {
-            background-image: "${url_for('static', filename='7dbackindex.jpg')}";
+            background-image: url("${url_for('static', filename='7dbackindex.jpg')}");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: all;

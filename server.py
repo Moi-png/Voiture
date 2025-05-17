@@ -6,7 +6,7 @@ from flask import Flask, abort, url_for, request, redirect, session
 from datetime import datetime
 from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
-from random import randint, choice, sample
+from random import randint, choice, sample, shuffle
 from sqlite3 import *
 from functools import wraps
 
@@ -142,53 +142,81 @@ def profile():
     db.close()
     return render_template("5.Compte.html.mako", pseudo=user["pseudo"], user=user, liked_cars=liked_cars)
 
+@app.route("/garage/start", methods=["GET", "POST"])
+def garage_start():
+    db = get_db()
+    voitures = db.execute("SELECT * FROM voiture").fetchall()
+    if request.method == "POST":
+        start_vid = int(request.form.get("voiture_id"))
+        car_ids = [v["id"] for v in voitures]
+        shuffle(car_ids)
+        if start_vid in car_ids:
+            car_ids.remove(start_vid)
+        car_ids.insert(0, start_vid)
+
+        session["ordre_voitures"] = car_ids
+        session["index_voiture"] = 0
+        db.close()
+        return redirect(url_for("garage", vid=start_vid))
+    db.close()
+    return render_template("choisir_voiture.html", voitures=voitures)
+
 @app.route("/garage/<vid>", methods=["GET", "POST"])
 def garage(vid):
     if "user_id" not in session:
         return redirect(url_for("index"))
+
+    if "ordre_voitures" not in session:
+        return redirect(url_for("garage_start"))
+
     user = load_connected_user()
     db = get_db()
-    if vid == "random":
-        car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
-        db.close()
-        vid = choice(car_ids)
-        return redirect(url_for("garage", vid=vid))
+
+    ordre = session["ordre_voitures"]
+
+    if int(vid) in ordre:
+        session["index_voiture"] = ordre.index(int(vid))
+
+    index = session.get("index_voiture", 0)
+    prev_id = ordre[index - 1] if index > 0 else None
+    next_id = ordre[index + 1] if index + 1 < len(ordre) else None
+
     voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
     user_id = session["user_id"]
+
     if request.method == "POST":
         action = request.form.get("action")
         if action == "like":
-            already_liked = db.execute(
-                "SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)
-            ).fetchone()
+            already_liked = db.execute("SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone()
             if not already_liked:
                 db.execute("INSERT INTO likes (user, voiture) VALUES (?, ?)", (user_id, vid))
             else:
                 db.execute("DELETE FROM likes WHERE user = ? AND voiture = ?", (user_id, vid))
         elif action == "signal":
-            already_signaled = db.execute(
-                "SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)
-            ).fetchone()
+            already_signaled = db.execute("SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone()
             if not already_signaled:
                 db.execute("INSERT INTO signal (user, voiture) VALUES (?, ?)", (user_id, vid))
             else:
                 db.execute("DELETE FROM signal WHERE user = ? AND voiture = ?", (user_id, vid))
         db.commit()
         return redirect(url_for("garage", vid=vid))
-    is_liked = db.execute(
-        "SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)
-    ).fetchone() is not None
-    is_signaled = db.execute(
-        "SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)
-    ).fetchone() is not None
-    like_count = db.execute(
-        "SELECT COUNT(*) FROM likes WHERE voiture = ?", (vid,)
-    ).fetchone()[0]
-    signal_count = db.execute(
-        "SELECT COUNT(*) FROM signal WHERE voiture = ?", (vid,)
-    ).fetchone()[0]
+
+    is_liked = db.execute("SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone() is not None
+    is_signaled = db.execute("SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone() is not None
+    like_count = db.execute("SELECT COUNT(*) FROM likes WHERE voiture = ?", (vid,)).fetchone()[0]
+    signal_count = db.execute("SELECT COUNT(*) FROM signal WHERE voiture = ?", (vid,)).fetchone()[0]
     db.close()
-    return render_template("5.RegarderUneVoiture.html.mako", voiture=voiture, is_liked=is_liked, is_signaled=is_signaled, like_count=like_count, signal_count=signal_count, user=user)
+
+    return render_template("5.RegarderUneVoiture.html.mako",
+        voiture=voiture,
+        is_liked=is_liked,
+        is_signaled=is_signaled,
+        like_count=like_count,
+        signal_count=signal_count,
+        user=user,
+        prev_id=prev_id,
+        next_id=next_id
+    )
 
 @app.route("/comparatif")
 def comparatif():

@@ -8,9 +8,16 @@
 </head>
 <body>
     <h4>
-        <a class="Droite" href="${url_for('garage', vid='random')}">
-            <img src="../static/7fdroit.png" alt="autre voiture" width="50" height="50" />
+        % if prev_id:
+        <a href="${url_for('garage', vid=prev_id)}">
+            <img src="../static/7fgauche.png" width="50" alt="Voiture précédente" />
         </a>
+        % endif
+        % if next_id:
+        <a href="${url_for('garage', vid=next_id)}">
+            <img src="../static/7fdroit.png" width="50" alt="Voiture suivante" />
+        </a>
+        % endif
         <form method="POST">
             <input type="hidden" name="action" value="signal" />
             <input type="image" class="HGauche" id="signalButton"
