@@ -147,19 +147,22 @@ def garage_start():
     db = get_db()
     voitures = db.execute("SELECT * FROM voiture").fetchall()
     if request.method == "POST":
-        start_vid = int(request.form.get("voiture_id"))
-        car_ids = [v["id"] for v in voitures]
-        shuffle(car_ids)
-        if start_vid in car_ids:
-            car_ids.remove(start_vid)
-        car_ids.insert(0, start_vid)
-
-        session["ordre_voitures"] = car_ids
-        session["index_voiture"] = 0
-        db.close()
-        return redirect(url_for("garage", vid=start_vid))
+        try:
+            start_vid = int(request.form.get("voiture_id"))
+            car_ids = [v["id"] for v in voitures]
+            shuffle(car_ids)
+            if start_vid in car_ids:
+                car_ids.remove(start_vid)
+            car_ids.insert(0, start_vid)
+            session["ordre_voitures"] = car_ids
+            session["index_voiture"] = 0
+            db.close()
+            return redirect(url_for("garage", vid=start_vid))
+        except (ValueError, TypeError):
+            db.close()
+            return "ID de voiture invalide", 400
     db.close()
-    return render_template("choisir_voiture.html", voitures=voitures)
+    return render_template("5.choisir_voiture.html.mako", voitures=voitures)
 
 @app.route("/garage/<vid>", methods=["GET", "POST"])
 def garage(vid):
@@ -169,14 +172,24 @@ def garage(vid):
     if "ordre_voitures" not in session:
         return redirect(url_for("garage_start"))
 
+    # Vérifie si vid == 'random'
+    if vid == "random":
+        ordre = session["ordre_voitures"]
+        if not ordre:
+            return redirect(url_for("garage_start"))
+        vid = ordre[0]  # Prend la première voiture par défaut
+    else:
+        try:
+            vid = int(vid)
+        except ValueError:
+            return "ID de voiture invalide", 400
+
     user = load_connected_user()
     db = get_db()
-
     ordre = session["ordre_voitures"]
 
-    if int(vid) in ordre:
-        session["index_voiture"] = ordre.index(int(vid))
-
+    if vid in ordre:
+        session["index_voiture"] = ordre.index(vid)
     index = session.get("index_voiture", 0)
     prev_id = ordre[index - 1] if index > 0 else None
     next_id = ordre[index + 1] if index + 1 < len(ordre) else None
@@ -205,9 +218,10 @@ def garage(vid):
     is_signaled = db.execute("SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone() is not None
     like_count = db.execute("SELECT COUNT(*) FROM likes WHERE voiture = ?", (vid,)).fetchone()[0]
     signal_count = db.execute("SELECT COUNT(*) FROM signal WHERE voiture = ?", (vid,)).fetchone()[0]
-    db.close()
 
-    return render_template("5.RegarderUneVoiture.html.mako",
+    db.close()
+    return render_template(
+        "5.RegarderUneVoiture.html.mako",
         voiture=voiture,
         is_liked=is_liked,
         is_signaled=is_signaled,
@@ -218,19 +232,28 @@ def garage(vid):
         next_id=next_id
     )
 
-@app.route("/comparatif")
+@app.route("/comparatif", methods=["GET", "POST"])
 def comparatif():
     if "user_id" not in session:
         return redirect(url_for('index'))
-    else:
-        db = get_db()
-        total = db.execute("SELECT COUNT(*) FROM voiture").fetchone()[0]
-        car_ids = [row[0] for row in db.execute("SELECT id FROM voiture").fetchall()]
-        vid1, vid2 = sample(car_ids, 2)
-        voiture1 = db.execute("SELECT * FROM voiture WHERE id = ?", (vid1,)).fetchone()
-        voiture2 = db.execute("SELECT * FROM voiture WHERE id = ?", (vid2,)).fetchone()
-        db.close()
-        return render_template("5.Comparatif.html.mako", voiture1=voiture1, voiture2=voiture2, s1=vid1, s2=vid2)
+    db = get_db()
+    voitures = db.execute("SELECT id, nom FROM voiture").fetchall()
+    db.close()
+    if request.method == "POST":
+        vid1 = request.form.get("voiture_gauche")
+        vid2 = request.form.get("voiture_droite")
+        return redirect(url_for("comparatiff", s1=vid1, s2=vid2))
+    return render_template("5.choice.html.mako", voitures=voitures)
+
+@app.route("/comparatif/<s1>/<s2>")
+def comparatiff(s1, s2):
+    if "user_id" not in session:
+        return redirect(url_for('index'))
+    db = get_db()
+    voiture1 = db.execute("SELECT * FROM voiture WHERE id = ?", (s1,)).fetchone()
+    voiture2 = db.execute("SELECT * FROM voiture WHERE id = ?", (s2,)).fetchone()
+    db.close()
+    return render_template("5.Comparatif.html.mako", voiture1=voiture1, voiture2=voiture2)
 
 @app.route("/contact")
 def contact():

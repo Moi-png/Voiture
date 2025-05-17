@@ -2,21 +2,25 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Choisir une voiture</title>
+    <title>Choix de voitures</title>
+    <link rel="stylesheet" type="text/css" href="${url_for('static', filename='style.css')}">
 </head>
 <body>
-    <h1>Choisis une voiture pour commencer</h1>
-    <ul>
-        % for v in voitures:
-        <li>
-            <form method="POST" action="/garage/start">
-                <input type="hidden" name="voiture_id" value="${v['id']}"/>
-                <button type="submit">
-                    ${v['nom']} <img src="/${v['lienimage']}" width="150"/>
-                </button>
-            </form>
-        </li>
-        % endfor
-    </ul>
+    <h2>Choisissez une voiture à regarder :</h2>
+    <form method="POST" action="${url_for('garage_start')}" class="centerrr">
+        <div>
+            <label for="voiture_id">Voiture :</label><br>
+            <select name="voiture_id" id="voiture_id" required>
+                % for v in voitures:
+                    <option value="${v['id']}">${v['nom']}</option>
+                % endfor
+            </select>
+        </div>
+        <button class="centerr" type="submit">Regarder</button>
+    </form>
+    <br>
+    <a class="downC" href="${url_for('acceuil')}">
+        <img src="../static/7ACCEUIL.png" alt="accueil" width="80" />
+    </a>
 </body>
 </html>
