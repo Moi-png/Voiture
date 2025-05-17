@@ -287,7 +287,7 @@ def ajout():
             with open(filepath, "wb") as f:
                 f.write(photo.read())
             db = get_db()
-            db.execute("""INSERT INTO voiture (hauteur, largeur, longueur, nom, pmax, mcouple, transmission, boite, moteur, posmoteur, energie, vmax, massevide, marque, lienimage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", (
+            db.execute("""INSERT INTO voiture (hauteur, largeur, longueur, nom, pmax, mcouple, transmission, boite, moteur, posmoteur, energie, vmax, massevide, lienimage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", (
                 form["hauteur"],
                 form["largeur"],
                 form["longueur"],
@@ -301,7 +301,6 @@ def ajout():
                 form["energie"],
                 form["vmax"],
                 form["massevide"],
-                form["marque"],
                 filepath
             ))
             db.commit()

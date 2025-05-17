@@ -23,7 +23,7 @@ create table voiture (
     energie text not null,
     vmax integer not null,
     massevide integer not null,
-    marque text not null,
+    marque text ,
     lienimage text not null
 );
 

@@ -22,11 +22,6 @@
             </div>
             <br><br>
             <div class="form-example">
-                <label for="marque">Marque de la voiture :</label>
-                <input type="text" name="marque" id="marque" required />
-            </div>
-            <br><br>
-            <div class="form-example">
                 <label for="energie">Énergie :</label>
                 <input type="text" name="energie" id="energie" required />
             </div>
