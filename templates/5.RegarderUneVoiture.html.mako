@@ -9,12 +9,12 @@
 <body>
     <h4>
         % if prev_id:
-        <a href="${url_for('garage', vid=prev_id)}">
+        <a class="Droitee" href="${url_for('garage', vid=prev_id, ordre=ordre_str)}">
             <img src="../static/7fgauche.png" width="50" alt="Voiture précédente" />
         </a>
         % endif
         % if next_id:
-        <a href="${url_for('garage', vid=next_id)}">
+        <a class="Droite" href="${url_for('garage', vid=next_id, ordre=ordre_str)}">
             <img src="../static/7fdroit.png" width="50" alt="Voiture suivante" />
         </a>
         % endif

@@ -76,6 +76,13 @@ h2{
     display: flex;
     justify-content: center;
 }
+.Droitee{
+    position: fixed;
+    right: 5%;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+}
 .Centre{
     position: fixed;
     right: 50%;
