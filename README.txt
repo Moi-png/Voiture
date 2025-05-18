@@ -18,12 +18,6 @@ aller dans server.py, lancer le python et c'est tout bon
 
 Chose à faire :
 
-Les liens vers les voitures depuis le profile ne sont pas les bons le problème c'est que l'ordre fait partie du lien mais je ne sais pas comment le régler
-
-Rendre le site entièrement beau avec le style - check si c'est bon
-
-changer tout les liens de truc de ../static et du genre par des url_for - check si c'est bon
-
 faire powerpoint
 
 contrôler dossier de consigne
