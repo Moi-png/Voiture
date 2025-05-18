@@ -1,5 +1,5 @@
 body{
-    background-image: url('../static/7dbackground.jpg');
+    background-image: url("/static/7dbackground.jpg");
     background-size: cover;
     background-repeat: 100000;
     color:  rgb(251, 85, 0);

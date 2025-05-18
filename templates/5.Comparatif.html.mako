@@ -12,11 +12,14 @@
             <br><br>
             Énergie : ${voiture1['energie']}
             <br><br>
+<<<<<<< HEAD
             Moteur :
             <span class="${'highlight' if int(voiture1['moteur']) > int(voiture2['moteur']) else ''}">
                 ${voiture1['moteur']} cylindres
             </span>
             <br><br>
+=======
+>>>>>>> 0e3a611cefcd041323f205dc915be8134b4991f8
             Puissance :
             <span class="${'highlight' if int(voiture1['pmax']) > int(voiture2['pmax']) else ''}">
                 ${voiture1['pmax']} ch
@@ -64,11 +67,14 @@
             <br><br>
             Énergie : ${voiture2['energie']}
             <br><br>
+<<<<<<< HEAD
             Moteur :
             <span class="${'highlight' if int(voiture2['moteur']) > int(voiture1['moteur']) else ''}">
                 ${voiture2['moteur']} cylindres
             </span>
             <br><br>
+=======
+>>>>>>> 0e3a611cefcd041323f205dc915be8134b4991f8
             Puissance :
             <span class="${'highlight' if int(voiture2['pmax']) > int(voiture1['pmax']) else ''}">
                 ${voiture2['pmax']} ch

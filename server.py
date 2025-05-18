@@ -171,19 +171,21 @@ def garage_start():
     db = get_db()
     voitures = db.execute("SELECT * FROM voiture").fetchall()
     if request.method == "POST":
+        voiture_id_raw = request.form.get("voiture_id")
         try:
-            start_vid = int(request.form.get("voiture_id"))
-            car_ids = [v["id"] for v in voitures]
-            shuffle(car_ids)
-            if start_vid in car_ids:
-                car_ids.remove(start_vid)
-            car_ids.insert(0, start_vid)
-            ordre_str = ",".join(str(i) for i in car_ids)
-            db.close()
-            return redirect(url_for("garage", vid=start_vid, ordre=ordre_str))
+            start_vid = int(voiture_id_raw)
         except (ValueError, TypeError):
             db.close()
             return "ID de voiture invalide", 400
+        car_ids = [v["id"] for v in voitures]
+        shuffle(car_ids)
+        if start_vid in car_ids:
+            car_ids.remove(start_vid)
+        car_ids.insert(0, start_vid)
+        ordre_str = ",".join(str(i) for i in car_ids)
+        db.close()
+        return redirect(url_for("garage", vid=start_vid, ordre=ordre_str))
+
     db.close()
     return render_template("5.choisir_voiture.html.mako", voitures=voitures)
 
@@ -191,43 +193,64 @@ def garage_start():
 def garage(vid):
     if "user_id" not in session:
         return redirect(url_for("index"))
+    db = get_db()
+    user_id = session["user_id"]
+    user = load_connected_user()
     ordre_str = request.args.get("ordre")
+    voitures = db.execute("SELECT * FROM voiture").fetchall()
+    car_ids = [v["id"] for v in voitures]
     if not ordre_str:
-        return redirect(url_for("garage_start"))
+        try:
+            start_vid = int(vid)
+        except ValueError:
+            db.close()
+            return redirect(url_for("garage_start"))
+        if start_vid not in car_ids:
+            db.close()
+            return redirect(url_for("garage_start"))
+        shuffle(car_ids)
+        car_ids.remove(start_vid)
+        car_ids.insert(0, start_vid)
+        ordre_str = ",".join(str(i) for i in car_ids)
+        db.close()
+        return redirect(url_for("garage", vid=start_vid, ordre=ordre_str))
     try:
-        ordre = [int(x) for x in ordre_str.split(",")]
+        ordre = [int(x) for x in ordre_str.split(",") if x.strip()]
     except ValueError:
+        db.close()
         return "Ordre invalide", 400
     if vid == "random":
         if not ordre:
+            db.close()
             return redirect(url_for("garage_start"))
         vid = ordre[0]
     else:
         try:
             vid = int(vid)
         except ValueError:
+            db.close()
             return "ID de voiture invalide", 400
-    if vid in ordre:
-        index = ordre.index(vid)
-    else:
+    if vid not in ordre:
+        db.close()
         return redirect(url_for("garage_start"))
+    index = ordre.index(vid)
     prev_id = ordre[index - 1] if index > 0 else None
     next_id = ordre[index + 1] if index + 1 < len(ordre) else None
-    db = get_db()
     voiture = db.execute("SELECT * FROM voiture WHERE id = ?", (vid,)).fetchone()
-    user_id = session["user_id"]
-    user = load_connected_user()
+    if not voiture:
+        db.close()
+        return "Voiture introuvable", 404
     if request.method == "POST":
         action = request.form.get("action")
         if action == "like":
-            already_liked = db.execute("SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone()
-            if not already_liked:
+            already = db.execute("SELECT 1 FROM likes WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone()
+            if not already:
                 db.execute("INSERT INTO likes (user, voiture) VALUES (?, ?)", (user_id, vid))
             else:
                 db.execute("DELETE FROM likes WHERE user = ? AND voiture = ?", (user_id, vid))
         elif action == "signal":
-            already_signaled = db.execute("SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone()
-            if not already_signaled:
+            already = db.execute("SELECT 1 FROM signal WHERE user = ? AND voiture = ?", (user_id, vid)).fetchone()
+            if not already:
                 db.execute("INSERT INTO signal (user, voiture) VALUES (?, ?)", (user_id, vid))
             else:
                 db.execute("DELETE FROM signal WHERE user = ? AND voiture = ?", (user_id, vid))
