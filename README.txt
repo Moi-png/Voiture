@@ -20,8 +20,6 @@ Chose à faire :
 
 faire powerpoint
 
-Faire le word avec tableau de qui a fait quoi
-
 db.pdf = Le schéma entité-association de la base de données
 
-mettre db.pdf, répartition.word dans dossier doc
+mettre db.pdf et powerpoint dans dossier doc

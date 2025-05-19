@@ -8,7 +8,6 @@ from flask_mako import render_template, MakoTemplates
 from flask_sqlite import SQLiteExtension, get_db
 from random import randint, choice, sample, shuffle
 from sqlite3 import *
-from functools import wraps
 
 app = Flask("NEED4STATS")
 app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
@@ -186,7 +185,6 @@ def garage_start():
         ordre_str = ",".join(str(i) for i in car_ids)
         db.close()
         return redirect(url_for("garage", vid=start_vid, ordre=ordre_str))
-
     db.close()
     return render_template("5.choisir_voiture.html.mako", voitures=voitures)
 
