@@ -168,7 +168,7 @@ def comptec():
 @app.route("/garage/start", methods=["GET", "POST"])
 def garage_start():
     if 'user_id' not in session:
-        return redirect(url_for('login')):
+        return redirect(url_for('login'))
     db = get_db()
     voitures = db.execute("SELECT * FROM voiture").fetchall()
     if request.method == "POST":
