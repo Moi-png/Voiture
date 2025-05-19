@@ -7,8 +7,7 @@
         <title>Need for stats</title>
     </head>
     <body>
-        <a href="${url_for('register')}">S'inscrire</a>
-        <br><br>
-        <a href="${url_for('login')}">Se connecter</a>
+        <a class="pap" href="${url_for('register')}">S'inscrire</a>
+        <a class="pape" href="${url_for('login')}">Se connecter</a>
     </body>
 </html>
