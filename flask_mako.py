@@ -151,8 +151,8 @@ class MakoTemplates(object):
         app.config.setdefault('MAKO_TRANSLATE_EXCEPTIONS', True)
         app.config.setdefault('MAKO_DEFAULT_FILTERS', None)
         app.config.setdefault('MAKO_PREPROCESSOR', None)
-        app.config.setdefault('MAKO_STRICT_UNDEFINED', False)
-        # Register custom handler for error happing in Make's template.
+        app.config.setdefault('MAKO_STRICT_UNDEFINED', True)
+        # Register custom handler for error happening in Make's template.
         app.errorhandler(MakoTemplateError)(self.exception_handler)
 
     def exception_handler(self, e):
