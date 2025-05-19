@@ -15,7 +15,6 @@ app.secret_key = b'\xee\xf6\xd5\xd30o\xaf\xcb"k\xa61k\xa7h\xf1'
 MakoTemplates(app)
 SQLiteExtension(app)
 
-
 def load_connected_user():
     user_id = session.get("user_id")
     if user_id is not None:
@@ -116,7 +115,7 @@ def acceuil():
 @app.route("/profile")
 def profile():
     user = load_connected_user()
-    if user is None:
+    if "user_id" not in session:
         return redirect(url_for("index"))
     db = get_db()
     liked_cars = db.execute("""SELECT voiture.id, voiture.nom FROM voiture JOIN likes ON voiture.id = likes.voiture WHERE likes.user = ?""", (user["id"],)).fetchall()
@@ -168,6 +167,8 @@ def comptec():
 
 @app.route("/garage/start", methods=["GET", "POST"])
 def garage_start():
+    if 'user_id' not in session:
+        return redirect(url_for('login')):
     db = get_db()
     voitures = db.execute("SELECT * FROM voiture").fetchall()
     if request.method == "POST":
