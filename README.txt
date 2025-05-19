@@ -22,12 +22,6 @@ faire powerpoint
 
 Faire le word avec tableau de qui a fait quoi
 
-plan.pdf = Le plan final du site au format PDF
-
 db.pdf = Le schéma entité-association de la base de données
 
-mettre plan.pdf, db.pdf, répartition.word, powerpoint/présentation.pwt dans dossier doc
-
-contrôler que le site work entièrement
-
-contrôler dossier de consigne
+mettre db.pdf, répartition.word dans dossier doc
