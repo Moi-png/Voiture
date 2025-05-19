@@ -14,7 +14,6 @@
             </p>
             <br>
         </div>
-
         <form method="POST" action="">
             <div class="form-example">
                 <label for="pseudo">Pseudo : </label>
