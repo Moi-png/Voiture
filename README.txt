@@ -20,8 +20,6 @@ Chose à faire :
 
 faire powerpoint
 
-contrôler dossier de consigne
-
 Faire le word avec tableau de qui a fait quoi
 
 plan.pdf = Le plan final du site au format PDF
