@@ -130,7 +130,6 @@ h2{
     display: flex;
     justify-content: center;
 }
-
 .centerrr {
     position: fixed;
     right: 50%;
@@ -147,7 +146,6 @@ h2{
     width: 100%;
     text-align: center;
 }
-
 .downL {
     color: rgb(251, 85, 0);
     font-family:'Franklin Gothic Medium';
