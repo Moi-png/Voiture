@@ -24,4 +24,8 @@ contrôler dossier de consigne
 
 Faire le word avec tableau de qui a fait quoi
 
-refaire dossier de présentation avec les deux plans refait (plan relationnel et plan des pages html)
+plan.pdf = Le plan final du site au format PDF
+
+db.pdf = Le schéma entité-association de la base de données
+
+mettre plan.pdf, db.pdf, répartition.word, powerpoint/présentation.pwt dans dossier doc
