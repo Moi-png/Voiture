@@ -1,0 +1,12 @@
+body {
+    background-image: url(/static/7dbackindex.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: all;
+    background-color: black;
+    color:  rgb(251, 85, 0);
+    font-family:'Franklin Gothic Medium';
+    right: 50%;
+    left: 50%;
+    bottom: 30%;
+}
