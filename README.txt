@@ -18,8 +18,4 @@ aller dans server.py, lancer le python et c'est tout bon
 
 Chose à faire :
 
-faire powerpoint
-
-db.pdf = Le schéma entité-association de la base de données
-
-mettre db.pdf et powerpoint dans dossier doc
+finir powerpoint
