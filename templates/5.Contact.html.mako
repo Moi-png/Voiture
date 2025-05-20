@@ -7,7 +7,7 @@
         <title>Contact</title>
     </head>
     <body>
-        <a href="${url_for('accueil')}"> Retour à la page d'accueil </a>
+        <a href="${url_for('accueil')}"><img src="${url_for('static', filename='7accueil.png')}" alt="accueil" width="80" /></a>
         <br>
         <br>
         <div class="center">
