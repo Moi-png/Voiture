@@ -6,7 +6,7 @@
     <title>Modifier votre compte</title>
 </head>
 <body>
-    <a class="Gauche" href="${url_for('acceuil')}">Revenir à la page d'accueil</a>
+    <a class="Gauche" href="${url_for('accueil')}">Revenir à la page d'accueil</a>
     <a class="Droite" href="${url_for('profile')}">Retour au profil</a>
     <div class="center">
         <form action="${url_for('comptec')}" method="POST" enctype="multipart/form-data">

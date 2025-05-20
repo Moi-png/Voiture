@@ -7,7 +7,7 @@
         <title>Contact</title>
     </head>
     <body>
-        <a href="${url_for('acceuil')}"> Retour à la page d'accueil </a>
+        <a href="${url_for('accueil')}"> Retour à la page d'accueil </a>
         <br>
         <br>
         <div class="center">

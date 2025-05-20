@@ -19,8 +19,8 @@
         <button class="centerr" type="submit">Regarder</button>
     </form>
     <br>
-    <a class="downC" href="${url_for('acceuil')}">
-        <img src="${url_for('static', filename='7ACCEUIL.png')}" alt="accueil" width="80" />
+    <a class="downC" href="${url_for('accueil')}">
+        <img src="${url_for('static', filename='7accueil.png')}" alt="accueil" width="80" />
     </a>
 </body>
 </html>

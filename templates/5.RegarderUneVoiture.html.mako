@@ -92,8 +92,8 @@
         <a class="downR" href="${url_for('ajout')}">
             <img src="${url_for('static', filename='7+.png')}" alt="ajout" width="50" height="50" />
         </a>
-        <a class="downC" href="${url_for('acceuil')}">
-            <img src="${url_for('static', filename='7ACCEUIL.png')}" alt="accueil" width="80" />
+        <a class="downC" href="${url_for('accueil')}">
+            <img src="${url_for('static', filename='7accueil.png')}" alt="accueil" width="80" />
         </a>
     </h5>
 </body>

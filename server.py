@@ -29,13 +29,13 @@ class ValidationError(ValueError):
 @app.route("/")
 def index():
     if "user_id" in session:
-        return redirect(url_for('acceuil'))
+        return redirect(url_for('accueil'))
     return render_template("1.PageTitre.html.mako")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if "user_id" in session:
-        return redirect(url_for('acceuil'))
+        return redirect(url_for('accueil'))
     if request.method == "GET":
         return render_template("2.Register.html.mako", error=None)
     if request.method == "POST":
@@ -74,7 +74,7 @@ def welcome():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if "user_id" in session:
-        return redirect(url_for('acceuil'))
+        return redirect(url_for('accueil'))
     if request.method == "GET":
         return render_template("2.Login.html.mako", error=None)
     elif request.method == "POST":
@@ -90,7 +90,7 @@ def login():
             session.clear()
             session["user_id"] = user["id"]
             app.logger.info("LOG IN '%s' (id=%d)", user['pseudo'], user['id'])
-            return redirect(url_for("acceuil"), code=303)
+            return redirect(url_for("accueil"), code=303)
         except ValidationError as e:
             return render_template("2.Login.html.mako", error=str(e))
 
@@ -103,13 +103,13 @@ def logout():
 def mlog():
     return render_template("3.Deconnection.html.mako")
 
-@app.route("/acceuil")
-def acceuil():
+@app.route("/accueil")
+def accueil():
     user = load_connected_user()
     if "user_id" not in session:
         return redirect(url_for('index'))
     else:
-        return render_template("4.Page d'acceuil.html.mako", user=user)
+        return render_template("4.Page d'accueil.html.mako", user=user)
 
 @app.route("/profile")
 def profile():

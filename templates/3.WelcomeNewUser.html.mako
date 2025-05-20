@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="center">
-            <a href="${url_for('acceuil')}"><img src="${url_for('static', filename='7bienvenue sur n4s.png')}" alt="plage" width="" height="280"></a>
+            <a href="${url_for('accueil')}"><img src="${url_for('static', filename='7bienvenue sur n4s.png')}" alt="plage" width="" height="280"></a>
         </div>
     </body>
 </html>
