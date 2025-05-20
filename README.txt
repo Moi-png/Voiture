@@ -15,7 +15,3 @@ vous voulez. Le but de ce site est de réunir des fans de voitures qui veulent p
 voitures peu connues.
 
 aller dans server.py, lancer le python et c'est tout bon
-
-Chose à faire :
-
-finir powerpoint
